@@ -1,0 +1,140 @@
+page{
+  background: #F4F4F4;
+}
+.header {
+  width: 100%;
+  height: 680rpx;
+}
+.header>image{
+  width: 100%;
+  height: 100%;
+}
+.header>view{
+  width: 100%;
+  position: absolute;
+  top: 116rpx;
+  left: 34rpx;
+}
+.title,.pic{
+  display: inline-block;
+}
+.title{
+  height: 206rpx;
+}
+.title view:nth-child(1){
+  font-size: 72rpx;
+  color: #FFFFFF;
+}
+.title view:nth-child(2){
+  font-size: 32rpx;
+  color: #B4ACFF;
+}
+.pic{
+  width: 220rpx;
+  height: 78rpx;
+  background: #4F4BAC;
+  border-radius: 19.5px;
+  font-size: 28rpx;
+  color: #FFFFFF;
+  text-align: center;
+  line-height: 78rpx;
+  position: absolute;
+  top: 0;
+  right: 66rpx;
+}
+.pic image{
+  width: 16rpx;
+  height: 26rpx;
+  position: relative;
+  top: 3rpx;
+  left: 6rpx;
+}
+.header .search{
+  width: 684rpx;
+  height: 96rpx;
+  background: #FFFFFF;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+}
+.header .search image{
+  width: 29.2rpx;
+  height: 28rpx;
+  margin: 0 28.4rpx;
+}
+.header .search input{
+  font-size: 30rpx;
+  color: #C9CCD3;
+  width: 500rpx;
+}
+.footer{
+  width: 100%;
+  position: absolute;
+  top: 466rpx;
+}
+.card{
+  width: 684rpx;
+  height: 336rpx;
+  margin-left: calc(50% - 336rpx);
+  background: rgba(255,255,255,0.89);
+  box-shadow: 0 2px 34px 0 rgba(39,52,125,0.25);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.card view:nth-child(2){
+  display: inline-block;
+}
+.card .imgBox{
+  width: 100rpx;
+  height: 100rpx;
+  background: #FFFFFF;
+  border-radius: 21px;
+  margin: 0 auto 14rpx;
+}
+.card .imgBox image{
+  width: 40rpx;
+  height: 48rpx;
+  margin: 25% 30%;
+}
+.card view:nth-child(3){
+  position: relative;
+  top: 6rpx;
+}
+.card view:nth-child(3) image{
+  height: 38rpx;
+}
+.card text{
+  font-size: 30rpx;
+  color: #000000;
+}
+.footer .search{
+  margin-top: 64rpx;
+}
+.search view:nth-child(1){
+  font-size: 18px;
+  color: #333333;
+  margin-left: 30rpx;
+  margin-bottom: 38rpx;
+}
+picker{
+  display: inline-block;
+}
+.footer .search view:nth-child(2) text,.footer .search view:nth-child(2) .picker{
+  display: inline-block;
+  height: 64rpx;
+  background: #fff;
+  line-height: 64rpx;
+  font-size: 28rpx;
+  color: #333333;
+  margin-right: 40rpx;
+  padding:0 15rpx 0 15rpx;
+}
+.picker{
+  font-size: 28rpx !important;
+}
+.footer .search view:nth-child(2) text:nth-child(1){
+  margin-left: 56rpx;
+  margin-right: 40rpx !important;
+}

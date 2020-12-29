@@ -1,0 +1,166 @@
+<view>
+  <!-- 选择联系人 -->
+  <view class="userInfo" bindtap="userChange">
+    <image class="logo" src="../images/order/orderLogo.png"></image>
+    <view wx:if="{{userInfo != ''}}">
+      <text>{{userInfo.contacts}}-{{userInfo.phone}}</text>
+      <view>{{userInfo.companyName}}</view>
+    </view>
+    <view wx:if="{{userInfo == ''}}">
+      <view>请选择客户</view>
+    </view>
+    <image class="next" src="../images/order/Chevron.png"></image>
+  </view>
+  <view class="flowerBox">
+    <view class="title">产品图片</view>
+    <scroll-view scroll-x enable-flex class="msgBox">
+      <view wx:for="{{flowerList}}" wx:key="index" class="scrollItem">
+        <image class="icon" src="../images/order/CloseIcon.png" id="{{index}}" bindtap="deleteFlower"></image>
+        <image src="{{wwwFileBaseUrl+item.customContent}}"></image>
+        <input disabled="{{!isType}}" placeholder-class="placeMsg" data-id="{{item.productId}}" bindblur="flowerNameChange" placeholder="输入拉钩编号" value="{{item.num}}" />
+      </view>
+      <view class="addBox" bindtap="addFlowerList" style="top:{{flowerList.length > 0 ? '-48rpx' : '0'}}">
+        <image src="../images/order/add.png"></image>
+      </view>
+    </scroll-view>
+  </view>
+  <view class="formBox">
+    <view class="fabric">
+      <text>大货订单号</text>
+      <input type="text" disabled="{{!isType}}" bindblur="setOrderNum" value="{{orderNum}}"></input>
+    </view>
+    <view class="fabric">
+      <text>客户订单号</text>
+      <input type="text" disabled="{{!isType}}" bindblur="setProductNum" value="{{productNum}}"></input>
+    </view>
+    <view class="swichForm">
+      <text class="flex1">面料来源</text>
+      <text>加工</text>
+       <switch checked="{{switchChecked}}" bindchange="switchChange"/>
+      <text>成品</text>
+       <switch checked="{{!switchChecked}}" bindchange="switchChange1"/>
+    </view>
+    <view class="fabricPinming">
+      <text>面料品名</text>
+      <input type="text" disabled="{{!isType}}" bindblur="setFabricPinming" value="{{fabricPinming}}" placeholder="请输入面料品名(多个面料用;隔开)" class="fabricPinmingInput"></input>
+    </view>
+    <!-- <view class="fabric">
+      <text>花型路径</text>
+      <input placeholder-class="input-placeholder" type="text" disabled="{{!isType}}" bindblur="filePathChange" placeholder="请输入花型路径" value="{{filePath}}"></input>
+    </view> -->
+    <!-- <view class="fabric">
+      <text>面料来源</text>
+      <picker bindchange="bindfabricTypeChange" value="{{fabricTypeIndex}}" disabled="{{!isType}}" range="{{fabricType}}" range-key="name">
+        <view>{{fabricType[fabricTypeIndex].name}}</view>
+      </picker>
+      <image src="../images/order/Chevron.png"></image>
+    </view> -->
+    <!-- <view class="fabric">
+      <text>面料</text>
+      <picker bindchange="bindPickerChange" value="{{fabricIndex}}" disabled="{{!isType}}" range="{{mianliaoList}}" range-key="name">
+        <view class="picker">{{mianliaoList[fabricIndex].name}}</view>
+      </picker>
+      <image src="../images/order/Chevron.png"></image>
+    </view> -->
+    <view class="fabric">
+      <text>跟单员</text>
+      <picker bindchange="colorBoyChange" value="{{colorBoyIndex}}" disabled="{{!isType}}" range="{{colorBoyList}}" range-key="name">
+        <view class="picker">{{colorBoyList[colorBoyIndex].name}}</view>
+      </picker>
+      <image src="../images/order/Chevron.png"></image>
+    </view>
+    <!-- <view class="fabric">
+      <text>配置方案</text>
+      <picker bindchange="configChange" value="{{configIndex}}" disabled="{{!isType}}" range="{{configList}}" range-key="name">
+        <view class="picker">{{configList[configIndex].name}}</view>
+      </picker>
+      <image src="../images/order/Chevron.png"></image>
+    </view> -->
+    <!-- <view class="fabric">
+      <text>调色员</text>
+      <picker bindchange="colorBoyChange" value="{{colorBoyIndex}}" disabled="{{!isType}}" range="{{colorBoyList}}" range-key="name">
+        <view class="picker">{{colorBoyList[colorBoyIndex].name}}</view>
+      </picker>
+      <image src="../images/order/Chevron.png"></image>
+    </view> -->
+    <!-- <view class="fabric">
+      <text>浆料配方</text>
+      <picker bindchange="sizingChange" value="{{sizingIndex}}" disabled="{{!isType}}" range="{{sizingList}}" range-key="name">
+        <view class="picker">{{sizingList[sizingIndex].name}}</view>
+      </picker>
+      <image src="../images/order/Chevron.png"></image>
+    </view> -->
+    <view class="priceSelect">
+      <text class="priceText">单价</text>
+      <input type="digit" disabled="{{!isType}}" bindblur="setPrice" value="{{price}}"></input>
+      <picker bindchange="priceChange" value="{{priceIndex}}" disabled="{{!isType}}" range="{{priceList}}" range-key="name" class="selectDanwei">
+        <view class="picker">{{priceList[priceIndex].name}}</view>
+      </picker>
+    </view>
+    <view class="fabric">
+      <text>是否含税</text>
+      <switch checked="{{tax}}" bindchange="changeTax" />
+    </view>
+    <view class="fabric">
+      <text>{{priceNumDanwei[priceIndex].name}}数</text>
+      <input type="digit" disabled="{{!isType}}" bindblur="setSize" placeholder="{{priceNumDanwei[priceIndex].name}}" value="{{size}}"></input>
+    </view>
+    <view class="approximately">
+      <text class="title">损益</text>
+      <input type="text" disabled="{{!isType}}" bindblur="setApproximatelyLeft" placeholder="%" value="{{approximatelyLeft}}" class="approximatelyInputLeft"></input>
+      <text class="center">~</text>
+      <input type="text" disabled="{{!isType}}" bindblur="setApproximatelyRight" placeholder="%" value="{{approximatelyRight}}"></input>
+    </view>
+    <view class="fabric">
+      <text>运输方式</text>
+      <picker bindchange="transportationTypeChange" disabled="{{!isType}}" value="{{transportationIndex}}" range="{{transportationList}}" range-key="name">
+        <view class="picker">{{transportationList[transportationIndex].name}}</view>
+      </picker>
+      <image src="../images/order/Chevron.png"></image>
+    </view>
+    <!-- <view class="fabric">
+      <text>是否加急</text>
+      <switch checked="{{expedite}}" bindchange="changeExpedite" />
+    </view> -->
+    <view class="fabric">
+      <text>包缸费</text>
+      <input type="digit" disabled="{{!isType}}" bindblur="setCylinder" placeholder="元" value="{{cylinder}}"></input>
+    </view>
+    <view class="fabric">
+      <text>快递方式</text>
+      <picker bindchange="bindDeliceryChange" disabled="{{!isType}}" value="{{deliveryIndex}}" range="{{deliveryType}}" range-key="name">
+        <view class="picker">{{deliveryType[deliveryIndex].name}}</view>
+      </picker>
+      <image src="../images/order/Chevron.png"></image>
+    </view>
+    <!-- <view class="fabric">
+      <text>交货时间</text>
+       <input type="digit" disabled="{{!isType}}" bindblur="bindDateChange" placeholder="天" value="{{jiahuoTime}}"></input>
+    </view> -->
+    <view class="approximately">
+      <text class="title">交货时间</text>
+      <input type="number" disabled="{{!isType}}" bindblur="bindDateChange" placeholder="天" value="{{jiahuoTime}}" class="approximatelyInputLeft"></input>
+      <text class="center">~</text>
+      <input type="number" disabled="{{!isType}}" bindblur="bindDateChangeTwo" placeholder="天" value="{{jiahuoTimeTwo}}"></input>
+    </view>
+    <view class="fabric textBox">
+      <text>备注</text>
+      <textarea bindblur="noteChange" disabled="{{!isType}}" value="{{note}}"></textarea>
+    </view>
+    <view class="fabric textBox" wx:if="{{!isType}}">
+      <text>备注</text>
+      <textarea bindblur="note2Change" value="{{note2}}"></textarea>
+    </view>
+  </view>
+  <view class="footBox">
+    <view class="priceBox">
+      <text>合计总价</text>
+      <text wx:if="{{!tax}}">(不含税)：</text>
+      <text wx:else>(含税)：</text>
+      <text>￥</text>
+      <text>{{allPrice}}</text>
+    </view>
+    <view wx:if="{{!isRevise}}" class="btn" bindtap="orderPost">确认提交</view>
+    <view wx:if="{{isRevise}}" class="btn" bindtap="orderRevise">确认修改</view>
+  </view>
+</view>

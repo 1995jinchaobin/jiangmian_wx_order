@@ -1,0 +1,15 @@
+<view class="orderResult" style="height: {{screenHeight}}px;">
+  <!-- 结果图 -->
+  <view class="resultImgArea" wx:if="{{showFlag}}">
+    <image class="resultImg" wx:if="{{code==0}}" src="../../images/successImg.png"></image>
+    <image class="resultImg" wx:if="{{code!=0}}" src="../../images/failImg.png"></image>
+  </view>
+  <view wx:if="{{showFlag}}" class="resultTitle">{{code==0?'订单提交成功，等待审核':'非常抱歉，您本次提交失败'}}</view>
+  <view class="resultDetail" wx:if="{{code!=0}}">{{failMessage}}</view>
+  <view class="btnsArea">
+    <view class="backBtn"wx:if="{{code==0}}" bindtap="goHome">返回首页</view>
+    <view class="backBtn"wx:if="{{code!=0}}" bindtap="updateOrder">修改订单</view>
+    <view class="myOrderBtn" bindtap="toMyOrders">我的订单</view>
+  </view>
+  <!-- <view class="bottomDetail">© 2016-2020 zhidaoai.com. All rights reserved.</view> -->
+</view>

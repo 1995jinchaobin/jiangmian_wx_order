@@ -1,0 +1,15 @@
+<view class="picker_group">  
+  <picker mode="date" value="{{date}}"  bindchange="bindDateChange">  
+    <view class="picker">  
+      {{date}}
+    </view>
+  </picker>
+  至  
+  <picker mode="date" value="{{date2}}" start="{{date}}" end="2050-01-01" bindchange="bindDateChange2">  
+    <view class="picker">  
+      {{date2}}
+    </view>
+  </picker>
+  <view bindtap="resetTime">重置</view>
+  <view bindtap="searchData" style="margin-left:10rpx;">搜索</view>
+</view>

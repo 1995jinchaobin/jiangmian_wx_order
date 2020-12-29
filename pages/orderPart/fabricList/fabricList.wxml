@@ -1,0 +1,36 @@
+<!--pages/orderPart/fabricList/fabricList.wxml-->
+<view class="bigArea"  style="height: {{screenHeight}}px;">
+  <tabBar selected="{{-1}}"></tabBar>
+  <!-- 面料 -->
+  <view wx:if="{{fabricList.length>0}}">
+    <view  class="fabricArea" wx:for="{{fabricList}}" wx:key="fabricList{{index}}" data-msg="{{item}}">
+      <!-- 面料名称 -->
+      <view class="fabricName">{{item.name}}</view>
+      <!-- 各个仓库的面料数 -->
+      <view class="flex">
+        <!-- 半漂仓 -->
+        <view class="firstBoxArea">
+          <view class="boxTitle">底布</view>
+          <view class="boxNum">{{item.num1}}M</view>
+        </view>
+        <!-- 上浆仓 -->
+        <!-- <view class="firstBoxArea nextBoxArea">
+          <view class="boxTitle">上浆仓</view>
+          <view class="boxNum">{{item.num2}}M</view>
+        </view> -->
+        <!-- 成品仓 -->
+        <view class="lastBoxArea">
+          <view class="boxTitle">成品布</view>
+          <view class="boxNum">{{item.num3}}M</view>
+        </view>
+      </view>
+    </view> 
+  </view>
+  <view wx:else>
+    <image class="emptyPng" src="../../images/fabricList/empty.png"></image>
+    <view class="noFabricTip">暂无面料</view>
+    <view class="tipDetail">您还未添加任何面料至厂家</view>
+    <view class="returnBtn" bindtap="gotoIndex">返回</view>
+  </view>
+  
+</view>

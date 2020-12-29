@@ -1,0 +1,100 @@
+/* pages/orderPart/rateOrder/index.wxss */
+.turnDownTitle{
+  font-size: 68rpx;
+  color: #000000;
+  letter-spacing: -1rpx;
+  line-height: 82rpx;
+  margin-top: 130rpx;
+  margin-left: 30rpx;
+}
+.turnDownDetail{
+  font-size: 34rpx;
+  color: #888888;
+  letter-spacing: -1rpx;
+  margin-top: 20rpx;
+  margin-left: 30rpx;
+}
+.noteArea{
+  width: 670rpx;
+  height: 470rpx;
+  margin-left: 30rpx;
+  margin-top: 60rpx;
+  border-radius: 12rpx;
+  background: #EDEFF1;
+  padding:10rpx;
+}
+.submitBtn{
+  width: 100%;
+  height: 94rpx;
+  background: #FFE300;
+  font-size: 36rpx;
+  color: #333333;
+  letter-spacing: 0.58rpx;
+  text-align: center;
+  line-height: 94rpx;
+  position: fixed;
+  bottom: 0rpx;
+}
+.flowerBox{
+  width: 100%;
+  height: 226rpx;
+  background: #FFFFFF;
+  padding-top: 40rpx;
+  position: relative;
+}
+.flowerBox .title{
+  font-size: 34rpx;
+  color: #333333;
+  margin-left: 30rpx;
+}
+.msgBox{
+  position: absolute;
+  width: 83%;
+  height: 180rpx;
+  /* display: flex; */
+  white-space: nowrap;
+  top: 40rpx;
+  left: 124rpx;
+}
+.addBox,.scrollItem{
+  display: inline-block;
+  position: relative;
+  width: 140rpx;
+}
+.scrollItem+.scrollItem{
+  margin-left: 28rpx;
+}
+.addBox{
+  /* top: -48rpx; */
+  margin-left: 10rpx;
+  width: 120rpx;
+  height: 120rpx;
+  background: #F3F3F3;
+  border-radius: 8rpx;
+}
+.msgBox .icon{
+  width: 42rpx;
+  height: 42rpx;
+  position: absolute;
+  top: -2rpx;
+  right: -2rpx;
+  z-index: 5;
+}
+.msgBox image:nth-child(2){
+  width: 120rpx;
+  height: 120rpx;
+  position: relative;
+  top: 10rpx;
+  border-radius: 8rpx;
+}
+.addBox image{
+  width: 45rpx;
+  height: 45rpx;
+  margin: 37.5rpx;
+}
+.msgBox input,.placeMsg{
+  width: 120rpx;
+  font-size: 24rpx;
+  color: #333333;
+  text-align: center;
+}

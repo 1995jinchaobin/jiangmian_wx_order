@@ -1,0 +1,111 @@
+<!--pages/orderPart/flaw/index.wxml-->
+<view class="flawPage">
+  <view class="formBox">
+    <view class="fabricPishu">
+      <text>当前匹数</text>
+      <text class="hui">第{{piNum}}匹</text>
+      <!-- <input placeholder-class="input-placeholder" type="text"  bindblur="numChange" placeholder="米" value="{{num}}"></input> -->
+    </view>
+    <view class="fabric">
+        <text>疵点米数</text>
+        <input placeholder-class="input-placeholder" type="digit"  bindblur="numChange" placeholder="米" value="{{num}}"></input>
+        <!-- <text class="hui">米</text> -->
+    </view>
+    <view class="fabric">
+        <text>疵点类型</text>
+        <picker value="{{flawListIndex}}" range="{{flawList}}" range-key="name" bindchange="bindPickerChange">
+          <view class="pickerselect">
+            <view>{{flawList[flawIndex].name}}</view>
+            <view wx-if="{{flawIndex!==0}}">-({{flawList[flawIndex].num}})</view>
+          </view>
+        </picker>
+        <!-- <input placeholder-class="input-placeholder" type="text" value="{{flawList[[flawIndex]].name}}（-{{flawList[flawIndex].num}}）"></input> -->
+    </view>
+    <!-- <view class="fabric">
+      <text>疵点类型</text>
+      <picker bindchange="bindIndexChange" value="{{flawIndex}}" range="{{flawList}}" range-key="name">
+        <view class="picker">
+          {{flawList[flawIndex].name}}（-{{flawList[flawIndex].num}}）
+        </view>
+      </picker>
+      <image src="../../images/order/Chevron.png"></image>
+    </view> -->
+    <view class="flex">
+      <view class="addBtn pishuFinishBtn" bindtap="pishuFinish">当前匹数完成</view>
+      <view class="addBtn" bindtap="addFlaw">提交疵点</view>
+    </view>
+  </view>
+  <!-- 瑕疵列表 -->
+  <scroll-view class="pro_list" scroll-y>
+    <view class="flex xiaciList"  wx:for="{{flawInfoList}}" wx:for-index="indexOne" wx:key="indexOne">
+      <view class="xiaciPishu">第{{item.pishu}}匹</view>
+      <view class="xiaciListXian"></view>
+      <view class="xiaciContent">
+        <view class="flawInfoArea" wx:for="{{item.xiaci}}" wx:for-index="index" wx:key="index">
+          <view class="left">第{{item.num}}米</view>
+          <view class="right">{{item.flawName}}（-{{item.reduceScore}}）</view>
+        </view>
+      </view>
+    </view>
+  </scroll-view>
+  <!-- 统计 -->
+  <view class="footBox">
+    <view class="priceBox">
+      <text>合计扣分：</text>
+      <text wx:if="{{flawCountNum >0}}">-</text>
+      <text>{{flawCountNum}}</text>
+    </view>
+    <view class="btn" bindtap="orderPost">检验完成</view>
+  </view>
+  <!-- 疵点类型选择弹框 -->
+  <!-- <view class='flawSelectBg' wx:if="{{showFlawSelectArea}}" style="height:{{screenHeight-statusBarHeight}}px">
+  </view>
+  <view class='flawSelectArea' wx:if="{{showFlawSelectArea}}">
+    <view class='flawSelectArea'>
+       <!-- 顶部按钮 -->
+      <!-- <view class='flawSelectBtnArea'>
+        <view bindtap='cancelSelect' class='cancelSelectBtn'>取消</view>
+        <view bindtap='sureSelect' class='cancelSelectBtn sureSelectBtn'>确定</view>
+      </view> -->
+      <!-- <view>{{flawList[0].name}}</view> -->
+      <!-- 疵点选择 -->
+      <!-- <scroll-view  scroll-y enable-flex class="flawBtnArea">
+        <view bindtap="selectFlaw" class="flawDetailBtn {{index==flawIndex?'selectFlawDetailBtn':''}}" wx:for="{{flawList}}" data-msg="{{item}}" data-index="{{index}}">
+        {{item.name}}
+        </view>
+      </scroll-view> -->
+      <!-- <picker bindchange="configChange" value="{{configIndex}}" disabled="{{!isType}}" range="{{configList}}" range-key="name">
+        <view class="picker">{{configList[configIndex].name}}</view>
+      </picker> -->
+      <!-- <picker value="{{flawListIndex}}" range="{{flawList}}" range-key="name" bindchange="bindPickerChange">
+        <view class="picker">
+          {{flawList[0].name}}
+        </view>
+      </picker> -->
+      <!-- <view class="flawBtnArea">
+        
+      </view> -->
+    <!-- </view>
+  </view> -->
+
+  <view wx:if="{{showInputPishu}}">
+    <view class='showInputPishu' style="height:{{screenHeight-statusBarHeight}}px">
+    </view>
+    <view class='showInputPishuArea' style="top:{{(screenHeight-statusBarHeight-112)/2}}rpx;">
+      <view class='checkMeterAreaInputArea'>
+        <view class="printMeterAreaInputAreaTitle">合格数量：</view>
+        <input bindinput='bindOkMeterInput' value="{{okMeter}}" type='digit'></input>
+        <view class='meterText'>米</view>
+      </view>
+      <view class='checkMeterAreaInputArea' style="margin-top:10px;">
+        <view class="printMeterAreaInputAreaTitle">次品数量：</view>
+        <input bindinput='bindBadMeterInput' value="{{badMeter}}" type='digit'></input>
+        <view class='meterText'>米</view>
+      </view>
+      <view class='printBtnArea'>
+        <view bindtap='cancelCheck' class='cancelBtn'>取消</view>
+        <view bindtap='sureCheck' class='sureBtn'>确定</view>
+      </view>
+    </view>
+  </view>
+</view>

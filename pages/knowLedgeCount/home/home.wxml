@@ -1,0 +1,14 @@
+<!--pages/home/home.wxml-->
+<view class="home" catchtouchmove="noneEnoughPeople">
+  <image class="bg" src="http://youchaikj.com/201912/96dea64f-a928-4b11-898a-28c0ebca72ef.png"></image>
+  <view class="body">
+    <p class="user" wx:if="{{userInfo.name}}">{{userInfo.name}}，您好</p>
+    <text class="headerTitle">以图识图</text>
+    <label bindtap="upLoadFile" class="inp">
+      <view class="textBox" wx:if="{{loading}}">
+        <span>正在识别中，请稍后</span><image class="icon" src="../../images/close.png"></image>
+      </view>
+      <input type="file" style="display: none;" id="file" /><span wx:if="{{!loading}}">本地上传</span>
+    </label>
+  </view>
+</view>

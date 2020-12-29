@@ -1,0 +1,75 @@
+page{
+  background: #E2E4E9;
+}
+.header{
+  width: 100%;
+  height: 600rpx;
+  position: relative;
+}
+.header image{
+  width: 100%;
+  height: 100%;
+}
+.header view{
+  position: absolute;
+  left: 32rpx;
+  color: #fff;
+}
+.header view:nth-child(2){
+  top: 116rpx;
+  font-size: 72rpx;
+}
+.header view:nth-child(3){
+  top: 216rpx;
+  font-size: 48rpx;
+}
+.card{
+  width: 684rpx;
+  height: 376rpx;
+  background: rgba(255,255,255,0.89);
+  box-shadow: 0 2px 34px 0 rgba(39,52,125,0.25);
+  border-radius: 12px;
+  position: absolute;
+  left: calc(50% - 342rpx);
+}
+.cardTitle{
+  display: block;
+  opacity: 0.36;
+  font-family: PingFangSC-Light;
+  font-size: 12px;
+  color: #212C68;
+  text-align: center;
+  margin: 62rpx auto 32rpx;
+}
+.cardCount{
+  width: 550rpx;
+  height: 104rpx;
+  background: #FFE300;
+  border-radius: 8px;
+  margin: 0 auto;
+}
+.cardCount image{
+  width: 32rpx;
+  height: 24rpx;
+  margin-right: 12rpx;
+}
+.cardCount text{
+  font-family: PingFangSC-Semibold;
+  font-size: 18px;
+  color: #000000;
+  line-height: 104rpx;
+  letter-spacing: -0.38px;
+  text-align: center;
+}
+.pic{
+  top: 372rpx;
+}
+.pic image{
+  margin-left: 166rpx;
+}
+.order{
+  top: 792rpx;
+}
+.order image{
+  margin-left: 144rpx;
+}

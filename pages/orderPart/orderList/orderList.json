@@ -1,0 +1,10 @@
+{
+  "usingComponents": {
+    "tabBar": "../../../components/orderList-tab-bar"
+  },
+  "navigationBarTitleText": "我的订单",
+  "enablePullDownRefresh": true,
+  "backgroundTextStyle": "dark",
+  "onReachBottomDistance":10,
+  "navigationBarBackgroundColor": "#eeeeee"
+}

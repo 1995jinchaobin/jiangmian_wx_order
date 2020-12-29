@@ -1,0 +1,33 @@
+<view class="infoBox">
+  <image src="../../images/userHome/homeBg.png"></image>
+  <view class="msgBox">
+    <view>
+      <view class="name">{{userInfo.name}}</view>
+      <view class="role">{{userInfo.role}}</view>
+    </view>
+    <view class="quit" bindtap="quit">退出</view>
+  </view>
+</view>
+<!-- <view class="fabric" bindtap="toPhone">
+  <text>联系电话</text>
+  <text class="phone">{{userInfo.account}}</text>
+  <image src="../../images/order/Chevron.png"></image>
+</view> -->
+<view class="fabric" bindtap="toPassword">
+  <text>修改密码</text>
+  <image src="../../images/order/Chevron.png"></image>
+</view>
+<view class="fabric" bindtap="toDayFive" wx:if="{{role==1||role==3||role==5}}" >
+  <text>交货预警</text>
+  <view wx:if="{{yujingNum}}" class="yujingNum">{{yujingNum}}</view>
+  <image src="../../images/order/Chevron.png"></image>
+</view>
+<!-- <view class="fabric" bindtap="toCountPage" wx:if="{{userInfo.role=='客户'}}">
+  <text>数据统计</text>
+  <image src="../../images/order/Chevron.png"></image>
+</view> -->
+<view class="fabric" wx:if="{{false}}">
+  <text>我的业务员</text>
+  <text class="phone">{{userInfo.account}}</text>
+</view>
+<tabBar selected="{{3}}"></tabBar>

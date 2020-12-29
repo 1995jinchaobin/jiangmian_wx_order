@@ -1,0 +1,194 @@
+
+<view class="msgBox" wx:if="{{role==1||role==2}}">
+  <image src="../../images/order/orderLogo.png"></image>
+  <view>
+    <view class="title">{{orderInfo.companyName}}</view>
+    <view class="name">
+      <text>{{orderInfo.contacts}}</text>
+      -
+      <text>{{orderInfo.phone}}</text>
+    </view>
+    <view class="name">
+      <text>{{orderInfo.address}}</text>
+    </view>
+  </view>
+</view>
+<view class="flowerBox">
+  <view class="title">产品</view>
+  <scroll-view scroll-x enable-flex class="msgBox">
+    <view wx:for="{{flowerList}}" wx:key="index" class="scrollItem">
+      <image data-item="{{item}}" bindtap="clickImg" src="{{baseUrl+item.flowerUrl}}"></image>
+      <view class="placeMsg">{{item.flowerNum}}</view>
+    </view>
+  </scroll-view>
+</view>
+<view class="fromBox">
+  <view>
+    <text>订单编号</text>
+    <text>{{orderInfo.orderId}}</text>
+  </view>
+  <view>
+    <text>大货订单号</text>
+    <text>{{orderInfo.bigOrderNum}}</text>
+  </view>
+  <view>
+    <text>客户订单号</text>
+    <text>{{orderInfo.productNum}}</text>
+  </view>
+  <!-- <view>
+    <text>花型路径</text>
+    <text>{{orderInfo.filePath}}</text>
+  </view> -->
+  <view>
+    <text>面料品名</text>
+    <text>{{orderInfo.fabricCustom}}</text>
+  </view>
+  <!-- <view>
+    <text>配置方案</text>
+    <text>{{orderInfo.configName}}</text>
+  </view> -->
+  <view wx:if="{{role!==0}}">
+    <text>跟单员</text>
+    <text>{{orderInfo.colorName}}</text>
+  </view>
+  <view wx:if="{{role!==0}}">
+    <text>面料来源</text>
+    <text>{{orderInfo.origin}}</text>
+  </view>
+  <!-- <view>
+    <text>浆料配方</text>
+    <text>{{orderInfo.sizingName}}</text>
+  </view> -->
+  <view>
+    <text>单价</text>
+    <text>￥{{orderInfo.unitPrice}}</text>
+  </view>
+  <view>
+    <text>数量</text>
+    <text>{{orderInfo.meter}}{{danWeiList[orderInfo.unit]}}</text>
+  </view>
+  <!-- <view>
+    <text>是否加急</text>
+    <text>{{orderInfo.expedite==0?'不加急':'加急'}}</text>
+  </view> -->
+  <view>
+    <text>是否含税</text>
+    <text>{{orderInfo.tax==0?'不含税':'含税'}}</text>
+  </view>
+  <view>
+    <text>包缸费</text>
+    <text>{{orderInfo.extraCharges}}元</text>
+  </view>
+  <view>
+    <text>总价</text>
+    <text>￥{{orderInfo.totalPrice}}</text>
+  </view>
+  <view>
+    <text>损益</text>
+    <text>{{orderInfo.otherChargesRate}}%</text>
+  </view>
+  <view wx:if="{{orderInfo.transportationType}}">
+    <text>运输方式</text>
+    <text>{{orderInfo.transportationType}}</text>
+  </view>
+  <view>
+    <text>快递方式</text>
+    <text>{{orderInfo.deliveryType}}</text>
+  </view>
+  <view>
+    <text>交货时间</text>
+    <text>{{orderInfo.startTime}}~{{orderInfo.endTime}}</text>
+  </view>
+  <view wx:if="{{orderInfo.type>=8}}" class="madan">
+    <text>码单</text>
+    <view class="madanImage">
+      <image bindtap="clickImgMadan" src="{{baseUrl+orderInfo.mdUrl}}" data-item="{{orderInfo.mdUrl}}" data-baseurl="{{orderInfo.baseUrl}}" mode="widthFix"></image>
+    </view>
+  </view>
+  <view>
+    <text>备注</text>
+    <text>{{(orderInfo.note==null||orderInfo.note=='') ?'暂无备注':orderInfo.note}}</text>
+  </view>
+  <view wx:if="{{orderInfo.note2!=null&&orderInfo.note2!=''}}">
+    <text>交货备注</text>
+    <text>{{(orderInfo.note2==null||orderInfo.note2=='') ?'暂无备注':orderInfo.note2}}</text>
+  </view>
+  <view wx:if="{{orderInfo.comment1!=null&&orderInfo.comment1!=''}}">
+    <text>客户评价</text>
+    <text>{{orderInfo.comment1}}</text>
+    <view class="flowerBox" wx:if="{{orderInfo.orderCommentList0.length>0}}">
+      <scroll-view scroll-x enable-flex class="msgBox">
+        <view wx:for="{{orderInfo.orderCommentList0}}" wx:key="index" class="scrollItem">
+          <image bindtap="clickRateImg" data-url="{{baseUrl+item.url}}" src="{{baseUrl+item.url}}"></image>
+        </view>
+      </scroll-view>
+    </view>
+  </view>
+  <view wx:if="{{orderInfo.comment2!=null&&orderInfo.comment2!=''}}">
+    <text>业务员评价</text>
+    <text>{{orderInfo.comment2}}</text>
+    <view class="flowerBox" wx:if="{{orderInfo.orderCommentList1.length>0}}">
+      <scroll-view scroll-x enable-flex class="msgBox">
+        <view wx:for="{{orderInfo.orderCommentList1}}" wx:key="index" class="scrollItem">
+          <image bindtap="clickRateImg" data-url="{{baseUrl+item.url}}" src="{{baseUrl+item.url}}"></image>
+        </view>
+      </scroll-view>
+    </view>
+  </view>
+</view>
+<view class="btnBox">
+  <!-- <view class="btn" bindtap="againOrder" wx:if="{{role==1||role==2}}">再次下单</view> -->
+  <view class="btn" bindtap="changeDeliveryTime" wx:if="{{role==2}}" data-time="{{orderInfo.deliveryTime}}" data-timeid="{{orderInfo.id}}">
+    修改交货时间
+  </view>
+  <view class="btn" bindtap="cancelOrder" wx:if="{{orderInfo.type != 100&&(role==1||role==2)}}">
+    取消订单
+  </view>
+</view>
+<!-- 操作记录 -->
+<view class="operateArea" wx:if="{{role!=0}}">
+  <view class="operateTitle">
+    <view class="operateLeftTitle">操作记录</view>
+  </view>
+  <view class="oprateDetail" wx:for="{{orderInfo.orderOperations}}" wx:for-index="index" wx:key="index">
+    <!-- 第一排 -->
+    <view class="flexAli">
+      <!-- 圈 -->
+      <view class="leftBigCircle" style="border:{{index==0?'4rpx solid #1890FF':'4rpx solid rgba(139,145,165,0.30)'}}">
+        <view wx:if="{{index==0}}" class="leftSmallCircle" style="background-color:{{index==0?'#1890FF':'rgba(139,145,165,0.30)'}}"></view>
+      </view>
+      <!-- 订单状态 -->
+      <view class="orderState">
+        {{(item.note==null||item.note=='')?statusList[item.type+1]:item.note}}
+      </view>
+    </view>
+    <!-- 第二排 -->
+    <view class="flex">
+      <!-- 左侧竖线 -->
+      <view wx:if="{{index < orderInfo.orderOperations.length-1}}" style="border:{{index==0?'2rpx solid #1890FF':'2rpx solid rgba(139,145,165,0.30)'}}" class="leftLine"></view>
+      <!-- 右侧操作人员 -->
+      <view class="operateUser">{{item.userName}}</view>
+      <!-- 右侧时间 -->
+      <view class="operateTime">{{item.createTime}}</view>
+    </view>
+  </view>
+</view>
+<view class="maxBox" wx:if="{{maxImgShow}}" catchtouchmove="noneEnoughPeople" bindtap="maxImgShow">
+  <!-- <view class="maxFlowerName">{{maxFlowerName}}</view> -->
+  <view class="maxImgBox">
+    <image mode="widthFix" src="{{maxImgUrl}}"></image>
+  </view>
+</view>
+<!-- 交货时间修改 -->
+<view wx:if="{{changeDateShow}}" class='printMeterBg' style="height:{{screenHeight-statusBarHeight}}px"></view>
+<view wx:if="{{changeDateShow}}" style="top:{{(screenHeight-statusBarHeight-112)/2}}rpx;" class='printMeterArea'>
+  <view class='printMeterTitle'>选择交货时间</view>
+  <picker mode="date" value="{{changeDate}}" start="2015-09-01" end="2100-09-01" bindchange="bindDateChange">
+    <view class="picker">{{changeDate}}</view>
+  </picker>
+  <view class='printBtnArea'>
+    <view bindtap='jiaohuoCancel' class='cancelBtn'>取消</view>
+    <view bindtap='jiaohuoSureBtn' class='sureBtn'>确定</view>
+  </view>
+</view>
+<tabBar selected="{{1}}"></tabBar>

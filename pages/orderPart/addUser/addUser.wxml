@@ -1,0 +1,36 @@
+<view class="orderMask" style="height: {{screenHeight}}px;">
+  <!-- 表单 -->
+  <view>
+    <view class="innputArea" style="border-bottom: 1rpx solid {{chooseCompanyName?'#333333':'#EEEEEE'}}">
+      <view class="inputLeft">公司名</view>
+      <input class="inputRight" placeholder="请输入公司名" placeholder-style="color:#CCCCCC" bindfocus="chooseCompanyNameMethod" bindblur="notChooseCompanyNameMethod" value="{{companyName}}" bindinput="bindCompanyNameInput"></input>
+    </view>
+  </view>
+  <view>
+    <view class="innputArea" style="border-bottom: 1rpx solid {{chooseContacts?'#333333':'#EEEEEE'}}">
+      <view class="inputLeft">联系人</view>
+      <input class="inputRight" placeholder="请输入公司联系人" placeholder-style="color:#CCCCCC" bindfocus="chooseContactsMethod" bindblur="notChooseContactsMethod" value="{{contacts}}" bindinput="bindContactsInput"></input>
+    </view>
+  </view>
+  <view>
+    <view class="innputArea" style="border-bottom: 1rpx solid {{choosePhone?'#333333':'#EEEEEE'}}">
+      <view class="inputLeft">电话</view>
+      <input class="inputRight" type='number' placeholder="请输入联系电话" placeholder-style="color:#CCCCCC" bindfocus="choosePhoneMethod" bindblur="notChoosePhoneMethod" value="{{phone}}"
+      bindinput="bindPhoneInput"></input>
+    </view>
+  </view>
+  <view>
+    <view class="innputArea" style="border-bottom: 1rpx solid {{chooseAddress?'#333333':'#EEEEEE'}}">
+      <view class="inputLeft">地址</view>
+      <input class="inputRight"  placeholder="请输入公司收货地址" placeholder-style="color:#CCCCCC" bindfocus="chooseAddressMethod" bindblur="notChooseAddressMethod" value="{{address}}" bindinput="bindAddressInput"></input>
+    </view>
+  </view>
+  <view>
+    <view class="innputArea" style="border-bottom: 1rpx solid {{chooseRemark?'#333333':'#EEEEEE'}}">
+      <view class="inputLeft">备注</view>
+      <input class="inputRight"  placeholder="请输入备注" placeholder-style="color:#CCCCCC" bindfocus="chooseRemarkMethod" bindblur="notChooseRemarkMethod" value="{{remark}}" bindinput="bindRemarkInput"></input>
+    </view>
+  </view>
+  <!-- 立即创建按钮 -->
+  <view class="submitBtn" bindtap="sureSubmit">立即创建</view>
+</view>

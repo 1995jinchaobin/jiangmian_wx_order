@@ -1,0 +1,36 @@
+{
+  "pages": [
+    
+    "pages/index/index",
+    "pages/orderPart/turnDown/turnDown",
+    "pages/orderPart/orderList/orderList",
+    "pages/orderPart/login/login",
+    "pages/order/order",
+    "pages/orderPart/addUser/addUser",
+    "pages/orderPart/orderResult/orderResult",
+    "pages/knowLedgeCount/home/home",
+    "pages/user/userHome/index",
+    "pages/client/clientList/index",
+    "pages/client/clientMsg/index",
+    "pages/orderPart/orderMsg/index",
+    "pages/orderPart/orderIndex/index",
+    "pages/user/revisePhone/index",
+    "pages/user/revisePassword/index",
+    "pages/search/home/index",
+    "pages/knowLedgeCount/detail/detail",
+    "pages/orderPart/fabricList/fabricList",
+    "pages/user/count/count",
+    "pages/search/searchNow/search",
+    "pages/orderPart/rateOrder/index",
+    "pages/orderPart/flaw/index"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#EDEDED",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "black"
+  },
+  "usingComponents": {},
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

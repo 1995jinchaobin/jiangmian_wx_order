@@ -1,0 +1,52 @@
+<!-- pages/detail/detail.wxml -->
+<view class="home">
+  <label bindtap="upLoadFile" class="inp">
+    <view class="textBox" wx:if="{{loading}}">
+      <span>正在识别中，请稍后</span>
+      <image class="icon" src="../../images/close.png"></image>
+    </view>
+    <input type="file" style="display: none;" id="file" />
+    <span wx:if="{{!loading}}">本地上传</span>
+  </label>
+  <view class="imgBox">
+    <view class="bgBox">
+      <image src="http://youchaikj.com/201912/96dea64f-a928-4b11-898a-28c0ebca72ef.png"></image>
+    </view>
+    <view class="countImg">
+      <image src="{{imgUrl}}"></image>
+    </view>
+  </view>
+  <view class="title">
+    <text>相似图片</text>
+  </view>
+  <view class='case-page'>
+    <view class='list-masonry'>
+      <view class='item-masonry' wx:for="{{imgList}}" wx:key="index">
+        <view class="actBtn" wx:if="{{userInfo.role==1||userInfo.role==2}}" data-info="{{item}}" bindtap="actFlower">
+          选择花型
+        </view>
+        <image lazy-load src='{{baseUrl + item.url}}' bindtap="clickImg" data-item="{{item}}" mode='widthFix'></image>
+        <text class="actText">{{item.name}}</text>
+      </view>
+    </view>
+  </view>
+  <view class="maxBox" wx:if="{{maxImgShow}}" catchtouchmove="noneEnoughPeople" bindtap="maxImgShow">
+    <view class="maxImgBox">
+      <image mode="widthFix" src="{{maxImgUrl}}"></image>
+    </view>
+  </view>
+  <view class="listBox" wx:if="{{actFlowerList.length > 0}}">
+    <view class="flowerBox">
+      <view class="title">花型</view>
+      <scroll-view scroll-x enable-flex class="msgBox">
+        <view wx:for="{{actFlowerList}}" wx:key="index" class="scrollItem">
+          <image class="icon" src="../../images/order/CloseIcon.png" id="{{index}}" bindtap="deleteFlower"></image>
+          <image src="{{baseUrl + item.customContent}}"></image>
+        </view>
+      </scroll-view>
+      <view class="addBox" style="top:{{flowerList.length > 0 ? '94rpx' : '94rpx'}}">
+        <text bindtap="toOrder">新建订单</text>
+      </view>
+    </view>
+  </view>
+</view>

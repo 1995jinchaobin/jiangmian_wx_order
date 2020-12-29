@@ -1,0 +1,17 @@
+<view class="msgBox">
+  <image src="../../images/order/orderLogo.png"></image>
+  <view>
+    <view class="title">{{userInfo.userDetail.companyName}}</view>
+    <view class="name">
+      <text>{{userInfo.name}}</text>-<text>{{userInfo.userDetail.phone}}</text>
+    </view>
+  </view>
+</view>
+<view class="detailBox">
+  <view>收货地址：{{userInfo.userDetail.address}}</view>
+  <view>所属业务员：{{userInfo.bindSalesman ? userInfo.bindSalesman.name : "暂无"}}</view>
+  <view>客户编号：{{userInfo.userDetail.fkUserId}}</view>
+</view>
+<view class="addBtn" bindtap="toCreate">
+  <image src="../../images/client/add.png"></image><text>新建客户</text>
+</view>

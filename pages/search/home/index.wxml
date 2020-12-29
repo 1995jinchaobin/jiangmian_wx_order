@@ -1,0 +1,62 @@
+<view class="searchBar">
+  <view>
+    <image src="../../images/search/search.png"></image>
+    <input placeholder="搜索你需要的{{placeText}}关键词" type="text" confirm-type="搜索" bindblur="setSearchInput" value="{{searchInput}}"> </input>
+  </view>
+  <view bindtap="getSearchList">搜索</view>
+</view>
+<view class="itemBox" wx:if='{{countType == 0}}'>
+  <text class="title">快速搜索订单内容</text>
+  <view class="btnBox">
+      <text data-key="公司" bindtap="searchKey" class="{{placeText=='公司'?'aaa':''}}">公司</text>
+      <text data-key="大货订单号" bindtap="searchKey" class="{{placeText=='大货订单号'?'aaa':''}}">大货订单号</text>
+      <text data-key="客户订单号" bindtap="searchKey" class="{{placeText=='客户订单号'?'aaa':''}}">客户订单号</text>
+      <text data-key="订单号" bindtap="searchKey" class="{{placeText=='订单号'?'aaa':''}}">订单号</text>
+    <!-- <text bindtap="searchKey" data-key="联系人">联系人</text>
+    <picker mode="date" value="{{date}}" start="{{data}}" end="3000-01-01" bindchange="bindDateChange">
+      <view class="picker">
+        时间
+      </view>
+    </picker>
+    <text bindtap="searchKey" data-key="面料规格">面料规格</text>
+    <text bindtap="searchKey" data-key="订单状态">订单状态</text> -->
+  </view>
+</view>
+<!-- 联系人 -->
+<view wx:if="{{countType == 1}}" class="searchBox">
+  <view class="userName" wx:for="{{customerList}}" wx:key="item.id">
+    <view data-info="{{item}}" bindtap="searchUser">{{item.name}}</view>
+  </view>
+</view>
+<!-- 公司 -->
+<view wx:if='{{countType == 5}}' class="searchBox">
+    <view class="orderInfo" wx:for="{{orderList}}" wx:key="orderInfo{{index}}">
+      <view class="orderInfoDetail" data-msg="{{item}}" bindtap="orderMsg">
+        <!-- 左边 -->
+        <view>
+          <!-- 标题+状态 -->
+          <view style="display:flex;align-items:center;">
+            <view class="orderTitle">{{item.companyName}}</view>
+            <view class="orderState">{{statusList[item.type+1]}}</view>
+          </view>
+          <!-- 地址 -->
+          <view class="orderAddress">{{item.address}}</view>
+          <!-- 下单时间 -->
+          <view class="orderTime">{{item.createTime}}</view>
+        </view>
+      </view>
+    </view>
+</view>
+<!-- 面料规格 -->
+<view wx:if="{{countType == 3}}" class="searchBox">
+  <view class="userName" wx:for="{{fabricList}}" wx:key="item.id">
+    <view bindtap="searchFabricType" data-key="{{item.name}}">{{item.name}}</view>
+  </view>
+</view>
+<!-- 订单状态 -->
+<view wx:if="{{countType == 4}}" class="searchBox">
+  <view class="userName" wx:for="{{orderSatausList}}" wx:key="index">
+    <view data-type="{{item}}" bindtap="orderClick">{{item}}</view>
+  </view>
+</view>
+<tabBar selected="{{2}}"></tabBar>

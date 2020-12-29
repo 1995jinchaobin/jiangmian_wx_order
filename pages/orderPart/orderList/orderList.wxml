@@ -1,0 +1,396 @@
+<view class="maskOrders" style="height: {{screenHeight}}px;">
+  <view class="typesArea">
+    <view wx:for="{{typeList}}" wx:for-index="index" class="typeBtn {{index==selectTypeIndex?'selectTypeBtn':''}}" data-index="{{index}}" bindtap="changeType" wx:key="index">
+      {{item}}
+    </view>
+  </view>
+  <!-- 列表 -->
+  <view class="noDataTip" wx:if="{{orderList.length == 0}}">暂无数据</view>
+  <view style="padding-bottom:200rpx;">
+    <view class="orderInfo" wx:for="{{orderList}}" wx:for-index="index" wx:key="index" data-msg="{{item}}" mut-bind:tap="toOrderMsg">
+      <view class="orderInfoDetail" data-msg="{{item}}">
+        <!-- 图片第一张缩略图 -->
+        <image class="orderImg" src="{{imgBaseUrl+item.orderDetails[0].flowerUrl}}"></image>
+        <!-- 左边 -->
+        <view style="width: 396rpx;">
+          <!-- 标题+是否加急 -->
+          <view style="display:flex;align-items:center;">
+            <view class="orderTitle">{{item.companyName}}</view>
+            <!-- 是否加急 -->
+            <view class="orderExpedite" style="color:white;background:red;border-radius:8rpx;padding:4rpx;" wx:if="{{item.expedite==1}}">
+              加急
+            </view>
+          </view>
+          <!-- 订单号 -->
+          <view class="orderAddress">订单号：{{item.orderId}}</view>
+        </view>
+        <!-- 右边 -->
+        <view class="orderRight">
+          <view class="orderState" wx:if="{{item.type!=100}}">{{statusList[item.type+1]}}</view>
+          <view class="orderState" wx:else>订单已取消</view>
+          <!-- 下单时间 -->
+          <view class="orderTime">{{item.createTime}}</view>
+        </view>
+      </view>
+      <!-- 底部进度条 -->
+      <view style="position:relative;">
+        <view style="display:flex;position:absolute;top:0rpx;">
+          <view style="width:{{item.type<=1&&item.type!=100?'65':item.type<=3&&item.type!=100?'150':item.type<=4&&item.type!=100?'280':item.type<=5&&item.type!=100?'340':(item.type<=6&&item.type!=100)?'420':(item.type<=7&&item.type!=100)?'480':(item.type<=8&&item.type!=100)?'540':(item.type<=9&&item.type!=100)?'610':(item.type<=10&&item.type!=100)?'680':(item.type<=12&&item.type!=100)?'720':item.type==100?'0':'600'}}rpx;" class="nowStateChecked"></view>
+          <view style="width:{{item.type<=1&&item.type!=100?'610':item.type<=3&&item.type!=100?'500':item.type<=4&&item.type!=100?'380':item.type<=5&&item.type!=100?'350':(item.type<=6&&item.type!=100)?'150':(item.type<=7&&item.type!=100)?'150':(item.type<=8&&item.type!=100)?'150':(item.type==10&&item.type!=100)?'50':(item.type<=13&&item.type!=100)?'0':item.type==100?'680':'80'}}rpx;" class="nowStateUnchecked"></view>
+        </view>
+        <view style="display:flex;justify-content: space-around;position:absolute;top:-8rpx;">
+          <view class="stateDetail" style="margin-left:45rpx;">
+            <image class="nowStateImg" src="{{item.type>=2&&item.type!=100?'../../../img/stateChecked.png':'../../../img/stateUnchecked.png'}}"></image>
+            <view style="color: {{item.type>=2?'#333333':'#999999'}};" class="stateText">大货确认</view>
+          </view>
+          <view class="stateDetail" style="margin-left:60rpx;">
+            <image class="nowStateImg" src="{{item.type>=3&&item.type!=100?'../../../img/stateChecked.png':'../../../img/stateUnchecked.png'}}"></image>
+            <view style="color: {{item.type>=3?'#333333':'#999999'}};" class="stateText">进仓</view>
+          </view>
+          <view class="stateDetail" style="margin-left:45rpx;">
+            <image class="nowStateImg" src="{{item.type>=4&&item.type!=100?'../../../img/stateChecked.png':'../../../img/stateUnchecked.png'}}"></image>
+            <view style="color: {{item.type>=4?'#333333':'#999999'}};" class="stateText">检验</view>
+          </view>
+          <view class="stateDetail" style="margin-left:45rpx;">
+            <image class="nowStateImg" src="{{item.type>=5&&item.type!=100?'../../../img/stateChecked.png':'../../../img/stateUnchecked.png'}}"></image>
+            <view style="color: {{item.type>=5?'#333333':'#999999'}};" class="stateText">出库</view>
+          </view>
+          <view class="stateDetail" style="margin-left:45rpx;">
+            <image class="nowStateImg" src="{{item.type>=6&&item.type!=100?'../../../img/stateChecked.png':'../../../img/stateUnchecked.png'}}"></image>
+            <view style="color: {{item.type>=6?'#333333':'#999999'}};" class="stateText">加工</view>
+          </view>
+          <view class="stateDetail" style="margin-left:45rpx;">
+            <image class="nowStateImg" src="{{item.type>=7&&item.type!=100?'../../../img/stateChecked.png':'../../../img/stateUnchecked.png'}}"></image>
+            <view style="color: {{item.type>=7?'#333333':'#999999'}};" class="stateText">入库</view>
+          </view>
+          <view class="stateDetail" style="margin-left:45rpx;">
+            <image class="nowStateImg" src="{{item.type>=8&&item.type!=100?'../../../img/stateChecked.png':'../../../img/stateUnchecked.png'}}"></image>
+            <view style="color: {{item.type>=8?'#333333':'#999999'}};" class="stateText">检验</view>
+          </view>
+          <view class="stateDetail" style="margin-left:45rpx;">
+            <image class="nowStateImg" src="{{item.type>=9&&item.type!=100?'../../../img/stateChecked.png':'../../../img/stateUnchecked.png'}}"></image>
+            <view style="color: {{item.type>=9?'#333333':'#999999'}};" class="stateText">码单</view>
+          </view>
+          <view class="stateDetail" style="margin-left:45rpx;">
+            <image class="nowStateImg" src="{{item.type>=10&&item.type!=100?'../../../img/stateChecked.png':'../../../img/stateUnchecked.png'}}"></image>
+            <view style="color: {{item.type>=10?'#333333':'#999999'}};" class="stateText">出库</view>
+          </view>
+          <view class="stateDetail" style="margin-left:45rpx;">
+            <image class="nowStateImg" src="{{item.type>=11&&item.type!=100?'../../../img/stateChecked.png':'../../../img/stateUnchecked.png'}}"></image>
+            <view style="color: {{item.type>=11?'#333333':'#999999'}};" class="stateText" wx:if="{{item.type==12}}">
+              退货
+            </view>
+            <view wx:else style="color: {{item.type>=11?'#333333':'#999999'}};" class="stateText">
+              收货
+            </view>
+          </view>
+          <!-- <view class="stateDetail" style="margin-left:90rpx;">
+            <image class="nowStateImg" src="{{item.type>6&&item.type!=100?'../../../img/stateChecked.png':'../../../img/stateUnchecked.png'}}"></image>
+            <view style="color: {{item.type>6?'#333333':'#999999'}};"  class="stateText">发货审核</view>
+          </view> -->
+          <!-- <view class="stateDetail" style="margin-left:70rpx;">
+            <image class="nowStateImg" src="{{item.type>7&&item.type!=100?'../../../img/stateChecked.png':'../../../img/stateUnchecked.png'}}"></image>
+            <view style="color: {{item.type>7?'#333333':'#999999'}};"  class="stateText">发货中</view>
+          </view> -->
+          <view class="stateDetail" style="margin-left:100rpx;">
+            <image class="nowStateImg" src="{{item.type>=13&&item.type!=100?'../../../img/stateChecked.png':'../../../img/stateUnchecked.png'}}"></image>
+            <view style="color: {{item.type>=13?'#333333':'#999999'}};" class="stateText">已发货</view>
+          </view>
+        </view>
+      </view>
+      <!-- 订单预计完成时间 -->
+      <view class="orderNeedTime" wx:if="{{item.type==3}}">
+        <!-- <view>预计出货时间：</view>
+        <view class="needTimeDetail">
+          {{item.expedite==0?item.needTimes-1+'-'+item.needTimes:item.urgentNeedTimes-1+'-'+item.urgentNeedTimes}}天左右
+        </view> -->
+      </view>
+      <!-- 订单打印信息 -->
+      <view class="orderNeedTime" style="margin-top:{{item.type==3?6:100}}rpx;">
+        <!-- <view>打印米数：</view>
+        <view class="needTimeDetail">已完成{{item.finishMeter}}米，剩余{{item.unfinishMeter}}米</view> -->
+      </view>
+      <!-- 已退货状态显示退货备注 -->
+      <view class="expressInfo orderNeedTime" style="margin-top:6rpx;" wx:if="{{(item.type==8)&&(role==0||role==1||role==2||role==3)&&item.type!=100}}">
+        <!-- <view>退货备注：</view>
+        <view class="needTimeDetail">{{item.note3}}</view> -->
+      </view>
+      <!-- 如果已分配打印机器，则显示在线打印员字段 -->
+      <view class="orderNeedTime" style="margin-top:7rpx" wx:if="{{item.type==3&&item.type!=100}}">
+        <!-- <view>在线打印员：</view>
+        <view class="needTimeDetail">{{item.onlinePrinters==null?'无':item.onlinePrinters}}</view> -->
+      </view>
+      <!-- 已发货状态显示快递信息 -->
+      <view class="expressInfo orderNeedTime" style="margin-top:6rpx;" wx:if="{{(item.type==13)&&(role==0||role==1||role==2||role==3)&&item.type!=100}}">
+        <view>物流：</view>
+        <view class="needTimeDetail">
+          <text wx:if="{{item.expressType!==null}}">{{item.expressType}}</text>
+          <text>{{item.expressNumber}}</text>
+        </view>
+      </view>
+      <!-- 分割线 -->
+      <view class="line" style="margin-top:{{((item.type==8)&&(role==0||role==1||role==2||role==3)&&item.type!=100)||((item.type==7)&&(role==0||role==1||role==2||role==3)&&item.type!=100)?70:39}}rpx;"></view>
+      <!-- 底部信息 -->
+      <view class="orderBottomInfo">
+        <!-- 总价 -->
+        <view class="orderTotalMoney">总价：¥{{item.totalPrice}}</view>
+        <!-- 操作 -->
+        <!-- 厂长在打印之前都可以修改订单备注 -->
+        <!-- <view data-id="{{item.id}}" data-Index="{{index}}" class="toPay" wx:if="{{(role==2&&item.type!=100)||(role==1&&item.type==0)}}" catchtap="updateOrder">修改订单</view> -->
+        <!-- 审核不通过状态，显示驳回原因按钮 -->
+        <view data-id="{{item.id}}" data-message="{{item.reason}}" data-Index="{{index}}" class="toPay" wx:if="{{item.type==-1&&role==1&&item.type!=100}}" catchtap="showResult">
+          驳回原因
+        </view>
+        <!-- 待审核状态，显示审核按钮 -->
+        <view data-id="{{item.id}}" data-message="{{item.note}}" class="toPay leftButton" wx:if="{{item.type==0&&role==2&&item.type!=100}}" catchtap="handlerReview">
+          审核
+        </view>
+        <!-- 已审核状态，调色员显示调色按钮 -->
+        <!-- <view data-id="{{item.id}}" style="margin-top:{{role==2?-84:25}}rpx" data-Index="{{index}}" class="toPay" wx:if="{{(role==7||role==2)&&(item.type == 1||item.type==2)&&item.colorFinishTime==null}}" catchtap="changeColor">调色</view> -->
+        <!-- 大货确认，业务员跟单员(1,7) -->
+        <view data-id="{{item.id}}" class="toPay leftButton" data-Index="{{index}}" style="right:{{role==2?32:32}}rpx;background-color:#{{role==2?'108EE9':'108EE9'}};color:#{{role==2?'FFFFFF':'FFFFFF'}}" wx:if="{{item.type==1&&(role==7||role==2||role==1)&&item.type!=100}}" catchtap="handlerNext">
+          大货确认
+        </view>
+        <!-- 底布进仓 type=2 仓管3,跟单7 -->
+        <view class="picker">
+          <view data-id="{{item.id}}" class="toPay leftButton" style="right:{{role==2?32:32}}rpx;background-color:#{{role==2?'108EE9':'108EE9'}};color:#{{role==2?'FFFFFF':'FFFFFF'}}" wx:if="{{item.type==2 && (role==3||role==2||role==7)&&item.type!=100}}" catchtap="dibuInput">
+            底布进仓
+          </view>
+        </view>
+        <!-- 底部检验type3  仓管3 -->
+        <view data-id="{{item.id}}" class="toPay leftButton" style="right:{{role==2?32:32}}rpx;background-color:#{{role==2?'108EE9':'108EE9'}};color:#{{role==2?'FFFFFF':'FFFFFF'}}" wx:if="{{item.type==3 && (role==3||role==2)&&item.type!=100}}" catchtap="dibuBtn">
+          底布检验
+        </view>
+        <!-- 底部出库type4 仓管3 -->
+        <view data-id="{{item.id}}" class="toPay leftButton" style="right:{{role==2?32:32}}rpx;background-color:#{{role==2?'108EE9':'108EE9'}};color:#{{role==2?'FFFFFF':'FFFFFF'}}" wx:if="{{item.type==4 && (role==3||role==2)&&item.type!=100}}" catchtap="dibuOut">
+          底布出库
+        </view>
+        <!-- 底布加工type5 跟单员7 -->
+        <view data-id="{{item.id}}" class="toPay leftButton" style="right:{{role==2?32:32}}rpx;background-color:#{{role==2?'108EE9':'108EE9'}};color:#{{role==2?'FFFFFF':'FFFFFF'}}" wx:if="{{item.type==5 && (role==7||role==2)&&item.type!=100}}" catchtap="dibuJjiagong">
+          底布加工
+        </view>
+        <!-- 成品入库type6 仓管3 跟单员7-->
+        <view data-id="{{item.id}}"  class="toPay leftButton" style="right:{{role==2?32:32}}rpx;background-color:#{{role==2?'108EE9':'108EE9'}};color:#{{role==2?'FFFFFF':'FFFFFF'}}" wx:if="{{item.type==6 && (role==3||role==2 ||role==7)&&item.type!=100}}" catchtap="chengpinInput">
+          成品入库
+        </view>
+        <!-- 成品检验type7 仓管3 -->
+        <view data-id="{{item.id}}" class="toPay leftButton" style="right:{{role==2?32:32}}rpx;background-color:#{{role==2?'108EE9':'108EE9'}};color:#{{role==2?'FFFFFF':'FFFFFF'}}" wx:if="{{item.type==7 && (role==3||role==2)&&item.type!=100}}" catchtap="chengpinJianyan">
+          成品检验
+        </view>
+        <!-- 成品出货type8 仓管3 -->
+        <!-- <view data-id="{{item.id}}" data-chengpinfkcustomerid="{{item.fkCustomerId}}" data-chengpinfkfabricid="{{item.fkFabricId}}" class="toPay leftButton" style="right:{{role==2?32:32}}rpx;background-color:#{{role==2?'108EE9':'108EE9'}};color:#{{role==2?'FFFFFF':'FFFFFF'}}" wx:if="{{item.type==8 && (role==3||role==2)&&item.type!=100}}" catchtap="chengpinOut">
+          成品出货
+        </view> -->
+        <!-- 成品验收type9 业务员1 -->
+        <!-- <view data-id="{{item.id}}" class="toPay leftButton" style="right:{{role==2?32:32}}rpx;background-color:#{{role==2?'108EE9':'108EE9'}};color:#{{role==2?'FFFFFF':'FFFFFF'}}" wx:if="{{item.type==9 && (role==1||role==2)&&item.type!=100}}" catchtap="chengpinYanshou">
+          出货验收
+        </view> -->
+        <!-- 上传码单 type8 业务员1 -->
+        <view data-id="{{item.id}}" data-mdurl="{{item.mdUrl}}" class="toPay leftButton" style="right:220rpx;background-color:#{{role==2?'108EE9':'108EE9'}};color:#{{role==2?'FFFFFF':'FFFFFF'}}" wx:if="{{item.type==8 && (role==1||role==2)&&item.type!=100}}" catchtap="madanSure">
+          确认码单
+        </view>
+        <view data-id="{{item.id}}" class="toPay leftButton" style="right:{{role==2?32:32}}rpx;background-color:#{{role==2?'108EE9':'108EE9'}};color:#{{role==2?'FFFFFF':'FFFFFF'}}" wx:if="{{item.type==8 && (role==1||role==2)&&item.type!=100}}" catchtap="filePost">
+          上传码单
+        </view>
+        <!-- 客户查看码单 type8 客户0 -->
+        <view data-mdurl="{{item.mdUrl}}"  class="toPay leftButton" style="right:{{role==2?32:32}}rpx;background-color:#{{role==2?'108EE9':'108EE9'}};color:#{{role==2?'FFFFFF':'FFFFFF'}}" wx:if="{{item.type==8 && (role==0||role==2)&&item.type!=100}}" catchtap="madanShow">
+          查看码单
+        </view>
+        <!-- 成品出库 type9 仓管3 -->
+        <view data-id="{{item.id}}" class="toPay leftButton" style="right:32rpx;background-color:#{{role==2?'108EE9':'108EE9'}};color:#{{role==2?'FFFFFF':'FFFFFF'}}" wx:if="{{item.type==9 && (role==3||role==2)&&item.type!=100}}" catchtap="chengpinChuhuo">
+          成品出货
+        </view>
+        <!-- 收货type10 业务员1-->
+        <view data-id="{{item.id}}" class="toPay leftButton" style="right:{{role==2?32:32}}rpx;background-color:#{{role==2?'108EE9':'108EE9'}};color:#{{role==2?'FFFFFF':'FFFFFF'}}" wx:if="{{item.type==10 && (role==1||role==2)&&item.type!=100}}" catchtap="shouhuo">
+          客户收货
+        </view>
+        <view data-id="{{item.id}}" class="toPay leftButton" style="right:230rpx;background-color:#F1F2F6;color:#646D7D" wx:if="{{item.type==10 && (role==1||role==2)&&item.type!=100}}" catchtap="handlerReturn">
+          客户退货
+        </view>
+        <!-- 客户0 -->
+        <view data-id="{{item.id}}" class="toPay leftButton" style="right:{{role==2?32:32}}rpx;background-color:#{{role==2?'108EE9':'108EE9'}};color:#{{role==2?'FFFFFF':'FFFFFF'}}" wx:if="{{item.type==10 && (role==0)&&item.type!=100}}" catchtap="shouhuo">
+          收货
+        </view>
+        <!-- 添加备注,five为true显示 -->
+        <view data-id="{{item.id}}" data-note2="{{item.note2}}" class="toPay beizhu" style="right:32rpx;background-color：108EE9;color:#FFFFFF}}" wx:if="{{five}}" catchtap="beizhuBtn">
+          预警备注
+        </view>
+        <!-- <view data-id="{{item.id}}" class="toPay leftButton" style="right:{{role==2?230:32}}rpx;background-color:#{{role==2?'F1F2F6':'108EE9'}};color:#{{role==2?'646D7D':'FFFFFF'}}" data-okMeter="{{item.okMeter}}" data-badMeter="{{item.badMeter}}" data-message="{{item.note}}" wx:if="{{item.type==6 && (role==1||role==2)&&item.type!=100}}" catchtap="handlerSendCheck">
+        <!-- 已收货type11 -->
+        <!-- <view data-id="{{item.id}}" class="toPay leftButton" style="right:{{role==2?32:32}}rpx;background-color:#{{role==2?'108EE9':'108EE9'}};color:#{{role==2?'FFFFFF':'FFFFFF'}}" wx:if="{{item.type==10 && (role==6||role==2)&&item.type!=100}}" catchtap="shouhuo">
+          收货
+        </view> -->
+        <!-- 已上浆状态，显示分配打印按钮 -->
+        <!-- <view data-id="{{item.id}}" class="toPay"  style="top:{{role==2?30:56}}rpx" wx:if="{{item.type==2&&(role==4||role==2)&&item.type!=100}}" catchtap="handlerGive">分配打印</view> -->
+        <!-- 上浆完成状态，显示打印分配按钮 -->
+        <!-- 已分配打印状态，并且该订单没有在线打印员，打印员可以接单 -->
+        <!-- <view data-id="{{item.id}}" style="margin-top:-84rpx" data-Index="{{index}}" class="toPay" wx:if="{{item.type==3 && role==5&&item.type!=100&&item.jiedanBtn}}" catchtap="receivePrint">
+          接单
+        </view> -->
+        <!-- <view>{{item.onlinePrinterIds}}.split(',')+'123'</view> -->
+        <!-- 已分配打印状态，并且该订单的在线打印员是自己，打印员可以换班 -->
+        <!-- <view data-id="{{item.id}}" style="margin-top:-84rpx" data-Index="{{index}}" class="toPay" wx:if="{{item.type==3 && role==5&&item.type!=100&&item.onlinePrinterId!=0&&item.jiedanBtn==false}}" catchtap="changePrint">
+          换班
+        </view> -->
+        <!-- 已分配打印状态，显示数量输入按钮和剩余未打印米数 -->
+        <!-- <view data-id="{{item.id}}" data-finishMeter="{{item.finishMeter}}" data-unfinishMeter="{{item.unfinishMeter}}" class="toPay leftButton" wx:if="{{item.type==3 && role==5&&item.type!=100&&item.jiedanBtn==false}}" catchtap="handlerHavePrint">
+          数量输入
+        </view> -->
+        <!-- <view data-id="{{item.id}}" data-finishMeter="{{item.finishMeter}}" data-unfinishMeter="{{item.unfinishMeter}}" class="toPay" style="right:32rpx;background-color:#'108EE9';color:#'FFFFFF';" wx:if="{{item.type==3 && role==5&&item.type!=100&&item.jiedanBtn==false}}" catchtap="handlerHavePrintFinish">
+          完成打印
+        </view> -->
+        <!-- 已打印状态，显示蒸化按钮 -->
+        <!-- <view data-id="{{item.id}}"  class="toPay leftButton"  style="right:{{role==2?230:32}}rpx;background-color:#{{role==2?'F1F2F6':'108EE9'}};color:#{{role==2?'646D7D':'FFFFFF'}}"  data-message="{{item.note}}" wx:if="{{item.type==4 && (role==6||role==2)&&item.type!=100}}" catchtap="handlerSteam">蒸化</view> -->
+        <!-- 已蒸化状态，显示检验按钮 -->
+        <!-- <view data-id="{{item.id}}" class="toPay leftButton" style="right:{{role==2?230:32}}rpx;background-color:#{{role==2?'F1F2F6':'108EE9'}};color:#{{role==2?'646D7D':'FFFFFF'}}" data-okMeter="{{item.okMeter}}" data-badMeter="{{item.badMeter}}" data-message="{{item.note}}" wx:if="{{item.type==5 && (role==6||role==2)&&item.type!=100}}" catchtap="handlerCheck">
+          检验
+        </view> -->
+        <!-- 点击发货按钮，显示发货审核按钮，业务员 -->
+        <!-- <view data-id="{{item.id}}" class="toPay leftButton" style="right:{{role==2?230:32}}rpx;background-color:#{{role==2?'F1F2F6':'108EE9'}};color:#{{role==2?'646D7D':'FFFFFF'}}" data-okMeter="{{item.okMeter}}" data-badMeter="{{item.badMeter}}" data-message="{{item.note}}" wx:if="{{item.type==6 && (role==1||role==2)&&item.type!=100}}" catchtap="handlerSendCheck">
+          发货审核
+        </view> -->
+        <!-- 检验完成，显示发货按钮，仓管 -->
+        <!-- <view data-id="{{item.id}}"  class="toPay leftButton"  style="right:{{role==2?230:32}}rpx;background-color:#{{role==2?'F1F2F6':'108EE9'}};color:#{{role==2?'646D7D':'FFFFFF'}}" data-okMeter="{{item.okMeter}}" data-badMeter="{{item.badMeter}}" data-message="{{item.note}}"  wx:if="{{item.type==6 && (role==3||role==2)&&item.type!=100}}" catchtap="handlerSend">发货</view> -->
+        <!-- 发货审核通过状态，显示快递单号按钮 仓库管理员 -->
+        <!-- <view data-id="{{item.id}}" class="toPay leftButton" style="right:{{role==2?230:32}}rpx;background-color:#{{role==2?'F1F2F6':'108EE9'}};color:#{{role==2?'646D7D':'FFFFFF'}}" data-okMeter="{{item.okMeter}}" data-badMeter="{{item.badMeter}}" data-message="{{item.note}}" wx:if="{{item.type==10 && (role==3||role==2)&&item.type!=100}}" catchtap="handlerkuaidiForm">
+          快递单号
+        </view> -->
+        <!-- 发货审核通过状态，如果是业务员角色，显示退货按钮 -->
+        <!-- <view style="top:30rpx" class="toPay leftButton" style="right:{{role==2?230:32}}rpx;background-color:#{{role==2?'F1F2F6':'108EE9'}};color:#{{role==2?'646D7D':'FFFFFF'}}" data-id="{{item.id}}" data-message="{{item.note}}" wx:if="{{(item.type==13) && (role==1||role==2)&&item.type!=100}}" catchtap="handlerReturn">
+          退货
+        </view> -->
+        <!-- 发货审核通过状态，如果是业务员/客户角色，显示评论按钮 -->
+        <view style="top:30rpx" class="toPay leftButton" style="right:{{role==1?230:32}}rpx;background-color:#{{role==1?'F1F2F6':'108EE9'}};color:#{{role==1?'646D7D':'FFFFFF'}}" data-id="{{item.id}}" data-message="{{item.note}}" wx:if="{{(item.type==13) && (((role==2||role==1)&&(item.comment2==''||item.comment2==null))||(role==0&&(item.comment1==''||item.comment1==null))||(role==2&&item.type==7&&item.fkUserId==userId&&item.comment2==''))&&item.type!=100}}" catchtap="goToRate">
+          评论
+        </view>
+      </view>
+    </view>
+  </view>
+  <tabBar selected="{{1}}"></tabBar>
+  <!-- 输入底布入库米数弹框 -->
+  <view wx:if="{{dibuInBtn}}" class='printMeterBg' style="height:{{screenHeight-statusBarHeight}}px"></view>
+  <view wx:if="{{dibuInBtn}}" style="top:{{(screenHeight-statusBarHeight-112)/2}}rpx;" class='printMeterArea'>
+    <view class='printMeterTitle'>输入入库底布米数</view>
+    <view class='printMeterAreaInputArea'>
+      <input bindinput='dibuInputChange' value="{{dibuIn}}" type='digit'></input>
+      <view class='meter'>米</view>
+    </view>
+    <view class='printBtnArea'>
+      <view bindtap='dibuCancel' class='cancelBtn'>取消</view>
+      <view bindtap='dibuSureBtn' class='sureBtn'>确定</view>
+    </view>
+  </view>
+  <!-- 输入成品入库米数弹框 -->
+  <view wx:if="{{chengpinInBtn}}" class='printMeterBg' style="height:{{screenHeight-statusBarHeight}}px"></view>
+  <view wx:if="{{chengpinInBtn}}" style="top:{{(screenHeight-statusBarHeight-112)/2}}rpx;" class='printMeterArea'>
+    <view class='printMeterTitle'>输入成品入库米数</view>
+    <view class='printMeterAreaInputArea'>
+      <input bindinput='chengpinInputChange' value="{{chengpinIn}}" type='digit'></input>
+      <view class='meter'>米</view>
+    </view>
+    <view class='printBtnArea'>
+      <view bindtap='chengpinCancel' class='cancelBtn'>取消</view>
+      <view bindtap='chengpinSureBtn' class='sureBtn'>确定</view>
+    </view>
+  </view>
+  <!-- 底布出库米数 -->
+  <view wx:if="{{dibuOutBtn}}" class='printMeterBg' style="height:{{screenHeight-statusBarHeight}}px"></view>
+  <view wx:if="{{dibuOutBtn}}" style="top:{{(screenHeight-statusBarHeight-112)/2}}rpx;" class='printMeterArea'>
+    <view class='printMeterTitle'>输入出库底布米数</view>
+    <view class='printMeterAreaInputArea'>
+      <input bindinput='dibuOutputChange' value="{{dibuOut}}" type='digit'></input>
+      <view class='meter'>米</view>
+    </view>
+    <view class='printBtnArea'>
+      <view bindtap='dibuOutCancel' class='cancelBtn'>取消</view>
+      <view bindtap='dibuOutSureBtn' class='sureBtn'>确定</view>
+    </view>
+  </view>
+  <!-- 成品出库米数 -->
+  <view wx:if="{{chengpinOutBtn}}" class='printMeterBg' style="height:{{screenHeight-statusBarHeight}}px"></view>
+  <view wx:if="{{chengpinOutBtn}}" style="top:{{(screenHeight-statusBarHeight-112)/2}}rpx;" class='printMeterArea'>
+    <view class='printMeterTitle'>输入出库成品米数</view>
+    <view class='printMeterAreaInputArea'>
+      <input bindinput='chengpinOutputChange' value="{{chengpinOut}}" type='digit'></input>
+      <view class='meter'>米</view>
+    </view>
+    <view class='printBtnArea'>
+      <view bindtap='chengpinOutCancel' class='cancelBtn'>取消</view>
+      <view bindtap='chengpinOutSureBtn' class='sureBtn'>确定</view>
+    </view>
+  </view>
+  <!-- 输入快递单号弹框 -->
+  <view wx:if="{{showSendBox}}" class='printMeterBg' style="height:{{screenHeight-statusBarHeight}}px"></view>
+  <view wx:if="{{showSendBox}}" style="top:{{(screenHeight-statusBarHeight-112)/2}}rpx;" class='printMeterArea'>
+    <view class='checkMeterAreaInputArea'>
+      <view class="printMeterAreaInputAreaTitle">快递公司：</view>
+      <picker style="width:260rpx;" bindchange="bindCompanyNameChange" value="{{companyIndex}}" range="{{expressCompanyList}}">
+        <view class="picker">{{expressCompanyList[companyIndex]}}</view>
+      </picker>
+      <!-- <input bindinput='bindCompanyNameInput' value="{{companyName}}" type='text'></input> -->
+    </view>
+    <view class='checkMeterAreaInputArea' style="margin-top:10px;">
+      <view class="printMeterAreaInputAreaTitle">快递单号：</view>
+      <input bindinput='bindExpressNumberInput' value="{{expressNumber}}" type='text'></input>
+    </view>
+    <view class='printBtnArea'>
+      <view bindtap='cancelSend' class='cancelBtn'>取消</view>
+      <view bindtap='nextSend' class='sureBtn'>下一个</view>
+      <view bindtap='sureSend' class='sureBtn'>确定</view>
+    </view>
+  </view>
+  <!-- 输入退货备注弹框 -->
+  <view wx:if="{{showReturnBox}}" class='printMeterBg' style="height:{{screenHeight-statusBarHeight}}px"></view>
+  <view wx:if="{{showReturnBox}}" style="top:{{(screenHeight-statusBarHeight-112)/2}}rpx;" class='printMeterArea'>
+    <view class='printMeterTitle'>输入退货备注</view>
+    <view class='printMeterAreaInputArea'>
+      <input bindinput='bindReturnNoteInput' style="font-size:32rpx" value="{{returnNote}}" type='text'></input>
+    </view>
+    <view class='printBtnArea'>
+      <view bindtap='cancelReturnNote' class='cancelBtn'>取消</view>
+      <view bindtap='sureReturnNote' class='sureBtn'>确定</view>
+    </view>
+  </view>
+  <!-- 确认快递单号 -->
+  <view wx:if="{{showSubmitCourier}}" class='printMeterBg' style="height:{{screenHeight-statusBarHeight}}px"></view>
+  <view wx:if="{{showSubmitCourier}}" class="expressNumberArr">
+    <view wx:for="{{expressNumberArr}}" wx:for-index="index" wx:key="index" data-index="{{index}}" class="expressNumberArrContent">
+      <view>快递类型：{{item.companyName}}</view>
+      <view class="{{expressNumberArr.length > index+1?'expressNumber':''}}">
+        快递单号：{{item.expressNumber}}
+      </view>
+    </view>
+    <view class='expressNumberArrBot'>
+      <view bindtap='cancelSendbtn' class='cancelBtn borderL'>重新填写</view>
+      <view bindtap='sureSendbtn' class='sureBtn'>确定</view>
+    </view>
+  </view>
+  <!-- 客户查看码单 -->
+  <view wx:if="{{showMadanImage}}" class='printMeterBg' style="height:{{screenHeight-statusBarHeight}}px"></view>
+  <view wx:if="{{showMadanImage}}" class="expressNumberArr">
+    <!-- <view class='expressNumberArrBot'> -->
+      <view class="section__ctn">
+        <image src="{{imgBaseUrl}}{{madanSrc}}" mode="aspectFit"></image>
+      </view>
+      <view bindtap='closeMadanImage' class="lookMadanBtn">
+        <text>关闭</text>
+      </view>
+    <!-- </view> -->
+  </view>
+  <!-- 添加备注输入 -->
+  <view wx:if="{{beizhuInputShow}}" class='printMeterBg' style="height:{{screenHeight-statusBarHeight}}px"></view>
+  <view wx:if="{{beizhuInputShow}}" style="top:{{(screenHeight-statusBarHeight-112)/2}}rpx;" class='printMeterArea'>
+    <view class='printMeterTitle'>输入备注</view>
+    <view class='printMeterAreaInputArea'>
+      <input bindinput='addBeizhuInput' value="{{beizhuInput}}" type='text'></input>
+    </view>
+    <view class='printBtnArea'>
+      <view bindtap='beizhuInputShowFalse' class='cancelBtn'>取消</view>
+      <view bindtap='beizhuInputShowTijiao' class='sureBtn'>确定</view>
+    </view>
+  </view>
+  <!-- <view wx:for="{{typeList}}" wx:for-index="index" class="typeBtn {{index==selectTypeIndex?'selectTypeBtn':''}}" data-index="{{index}}" bindtap="changeType" wx:key="index">
+      {{item}}
+    </view> -->
+  <!-- <view class="bottomDetail">© 2016-2020 zhidaoai.com. All rights reserved.</view> -->
+</view>

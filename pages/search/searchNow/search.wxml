@@ -1,0 +1,57 @@
+<!--pages/search/searchNow/search.wxml-->
+<view>
+  <view class="formBox">
+    <view class="fabric">
+        <text>公司名</text>
+        <input placeholder-class="input-placeholder" type="text"  bindblur="companyNameChange" placeholder="请输入公司名" value="{{companyName}}"></input>
+    </view>
+    <view class="fabric">
+        <text>大货订单号</text>
+        <input placeholder-class="input-placeholder" type="text" bindblur="searchBigOrderNumChange" placeholder="请输入大货订单号" value="{{searchBigOrderNum}}"></input>
+    </view>
+    <view class="fabric">
+        <text>客户订单号</text>
+        <input placeholder-class="input-placeholder" type="text" bindblur="searchProductNumChange" placeholder="请输入客户订单号" value="{{searchProductNum}}"></input>
+    </view>
+    <view class="fabric">
+        <text>订单号</text>
+        <input placeholder-class="input-placeholder" type="text" bindblur="searchOrderIdNChange" placeholder="请输入订单号" value="{{searchOrderIdN}}"></input>
+    </view>
+    <!-- <view class="fabric">
+        <text>联系人</text>
+        <input placeholder-class="input-placeholder" type="text" bindblur="concatChange" placeholder="请输入公司联系人" value="{{concat}}"></input>
+    </view> -->
+    <!-- <view class="fabric">
+      <text>面料规格</text>
+      <picker bindchange="bindPickerChange" value="{{fabricIndex}}" range="{{fabricList}}" range-key="name">
+        <view class="picker">
+          {{fabricList[fabricIndex].name}}
+        </view>
+      </picker>
+      <image src="../../images/order/Chevron.png"></image>
+    </view> -->
+    <!-- <view class="fabric">
+        <text>米样</text>
+        <input placeholder-class="input-placeholder" type="text" bindblur="flowerNumChange" placeholder="请输入米样名字" value="{{flowerNum}}"></input>
+    </view> -->
+    <view class="fabric">
+      <text>订单状态</text>
+      <picker bindchange="bindOrderStateChange" value="{{statusIndex}}" range="{{statusList}}" >
+        <view class="picker">
+          {{statusList[statusIndex]}}
+        </view>
+      </picker>
+      <image src="../../images/order/Chevron.png"></image>
+    </view>
+    <!-- <view class="fabric">
+      <text>日期</text>
+      <picker mode="date" value="{{date}}"  start="2015-09-01" end="2100-09-01" bindchange="bindDateChange">
+        <view class="picker">
+          {{date}}
+        </view>
+      </picker>
+      <image src="../../images/order/Chevron.png"></image>
+    </view> -->
+  </view>
+  <view class="btn" bindtap="searchOrder">立即搜索</view>
+</view>

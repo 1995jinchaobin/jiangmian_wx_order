@@ -1,0 +1,79 @@
+page{
+  background: rgba(245, 242, 242, 0.952);
+}
+.infoBox{
+  width: 610rpx;
+  height: 374rpx;
+  border-radius: 10%;
+  margin: 64rpx calc(50% - 305rpx) 72rpx;
+  position: relative;
+}
+.infoBox image{
+  width: 610rpx;
+  height: 374rpx;
+}
+.msgBox{
+  position: absolute;
+  bottom: 60rpx;
+  width: 100%;
+  height: 90rpx;
+  display: flex;
+  align-items: center;
+  color: #FFFFFF;
+  justify-content: space-between;
+}
+.msgBox .name{
+  font-size: 32rpx;
+  margin-left: 60rpx;
+}
+.msgBox .role{
+  font-size: 20rpx;
+  margin-left: 60rpx;
+}
+.msgBox .quit{
+  width: 142rpx;
+  height: 78rpx;
+  background: #4F4BAC;
+  border-radius: 19.5px;
+  text-align: center;
+  line-height: 78rpx;
+  margin-right: 18rpx;
+}
+.fabric{
+  width: 100%;
+  height: 94rpx;
+  background: #FFF;
+  display: flex;
+  align-items: center;
+  position: relative;
+  margin-bottom:2rpx;
+}
+.fabric image{
+  position: absolute;
+  width: 16rpx;
+  height: 25rpx;
+  right: 32rpx;
+}
+.fabric text:nth-child(1){
+  margin-left: 70rpx;
+  font-size: 34rpx;
+  color: #333333;
+}
+.fabric .phone{
+  font-size: 32rpx;
+  color: #999999;
+  position: absolute;
+  right: 68rpx;
+  text-align: right;
+}
+.yujingNum{
+  position: absolute;
+  width: 1rem;
+  font-size: 0.5rem;
+  top: 33rpx;
+  text-align: center;
+  left: 670rpx;
+  color: #fff;
+  background-color: red;
+  border-radius: 50%;
+}

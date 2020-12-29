@@ -1,0 +1,45 @@
+/* pages/login/login.wxss */
+.home{
+  width: 750rpx;
+  height: 100vh;
+  background: rgb(238, 238, 238);
+  position: relative;
+}
+image.bg{
+  width: 750rpx;
+  height: 100vh;
+}
+.body{
+  width: 750rpx;
+  height: 100vh;
+  padding-top: 300rpx;
+  position: absolute;
+  top: 0;
+  background: rgba(0, 0, 0, 0.525);
+}
+image{
+  width: 337rpx;
+  height: 80rpx;
+  display: block;
+  margin: 0 auto 84rpx;
+}
+input{
+  width: 495rpx;
+  height: 80rpx;
+  background: rgb(255, 255, 255);
+  border-radius: 8rpx;
+  margin: 0 auto 84rpx;
+  font-size: 28rpx;
+  padding-left: 30rpx;
+}
+button{
+  width: 525rpx !important;
+  height: 80rpx;
+  background: rgb(56, 133, 241);
+  color: rgb(255, 255, 255);
+  font-size: 38rpx;
+}
+.text{
+  font-size: 24rpx;
+  color: rgba(96, 98, 102, 0.525);
+}

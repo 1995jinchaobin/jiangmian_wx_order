@@ -1,0 +1,19 @@
+<view class="home">
+  <view class="header">
+    <image src="../images/index/header.png"></image>
+    <view>您好，</view>
+    <view>欢迎来到江绵纺织</view>
+  </view>
+  <view class="card pic">
+    <view class="cardTitle">快速传图  闪电分析  精准识别</view>
+    <view class="cardCount" bindtap="toPic">
+      <image src="../images/index/pic.png"></image><text>以图识图</text>
+    </view>
+  </view>
+  <view class="card order">
+    <view class="cardTitle">快速下单  过程管控  数据实时</view>
+    <view class="cardCount" bindtap="toOrder">
+      <image src="../images/index/order.png"></image><text>在线订单系统</text>
+    </view>
+  </view>
+</view>

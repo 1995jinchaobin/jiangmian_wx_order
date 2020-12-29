@@ -1,0 +1,122 @@
+/* pages/user/count/count.wxss */
+.bigArea{
+  width: 100%;
+  background-color:  rgba(237,237,237,0.90);
+}
+.countArea{
+  width: 670rpx;
+  padding: 48rpx 40rpx 40rpx;
+  background-color: #fff;
+  margin-bottom: 20rpx;
+  position: relative;
+}
+.titleArea{
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+.leftTitle{
+  font-family: Montserrat-Bold;
+  font-size: 32Rpx;
+  color: #292B23;
+  letter-spacing: 0.4Rpx;
+  line-height: 40rpx;
+  margin-left: 20rpx;
+  position: relative;
+}
+.dateSelect{
+  width: 30rpx;
+  height: 32rpx;
+  margin-left: 22rpx;
+}
+.dateBtn{
+  font-family: PingFangSC-Regular;
+  font-size: 32rpx;
+  color: #292B23;
+  letter-spacing: 0.4rpx;
+  line-height: 40rpx;
+  position: absolute;
+}
+.mounthBtn{
+  right: 42rpx;
+}
+.weekBtn{
+  right: 112rpx;
+}
+.dayBtn{
+  right: 184rpx;
+}
+.selectBtn{
+  color: #108EE9;
+}
+.selectBtnBorder{
+  width: 40rpx;
+  height: 4rpx;
+  background-color: #108EE9;
+  position: absolute;
+  top: 92rpx;
+  right: 216rpx;
+  border-radius: 2px;
+}
+ec-canvas {
+  width: 670rpx;
+  /* width:auto; */
+  height: 300rpx;
+}
+.container{
+  height: 300rpx;
+}
+.noFabric{
+  font-family: PingFangSC-Semibold;
+  font-size: 42rpx;
+  color: #344B67;
+  letter-spacing: -0.4rpx;
+  text-align: center;
+  padding: 80rpx 0;
+}
+.rightSellRange{
+    width: 646rpx;
+    margin-top: 72rpx;
+    height: 44rpx;
+    margin-left: 20rpx;
+  }
+.sellCountContentArea{
+    display: flex;
+    align-items: center;
+    height: 44rpx;
+  }
+.topThree{
+    width: 40rpx;
+    height: 40rpx;
+    color: #fff;
+    background-color: #3f8ff7;
+    border-radius: 100rpx;
+    text-align: center;
+    line-height: 40rpx;
+    font-size: 24rpx;
+    margin-right: 2rem;
+  }
+.notTopThree{
+    background-color: #f0f2f5 !important;
+    color: #000;
+  }
+.topThreeName{
+    font-family: PingFangSC-Regular;
+    font-size: 14px;
+    color: rgba(0,0,0,0.65);
+    width: 13.54rem;
+  }
+.topThreeArea{
+    display: flex;
+    margin-bottom: 17.5px;
+  }
+.topThreeNum{
+    width: 4.3rem;
+    text-align: right;
+    font-size: 14px;
+  }
+.selectTimeBox{
+  position: fixed;
+  bottom: 100rpx;
+  background-color: #fff
+}

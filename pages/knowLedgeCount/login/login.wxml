@@ -1,0 +1,10 @@
+<!--pages/login/login.wxml-->
+<view class="home" catchtouchmove="noneEnoughPeople">
+  <image class="bg" src="http://youchaikj.com/201912/96dea64f-a928-4b11-898a-28c0ebca72ef.png"></image>
+  <view class="body">
+    <image src="../../images/logo1.png"></image>
+    <input type="number" placeholder-class="text" placeholder="请输入账号" bindblur="getuserName"></input>
+    <input type="text" placeholder-class="text" password placeholder="请输入密码" bindblur="getPassword"></input>
+    <button bindtap="userLogin">登</button>
+  </view>
+</view>

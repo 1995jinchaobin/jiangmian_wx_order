@@ -1,0 +1,19 @@
+<view class="password">
+  <view>
+    <text>原密码</text><input type="password" bindfocus="oldInputHidd" bindblur="oldInputShow" placeholder="请输入原密码"></input>
+  </view>
+  <view class="{{oldPassword ? 'actShow' : 'actNone'}}"></view>
+</view>
+<view class="password">
+  <view>
+    <text>新密码</text><input type="password" bindfocus="newInputHidd" bindblur="newInputShow" placeholder="请输入新密码"></input>
+  </view>
+  <view class="{{newPassword ? 'actShow' : 'actNone'}}"></view>
+</view>
+<view class="password">
+  <view>
+    <text>确认密码</text><input type="password" bindfocus="actInputHidd" bindblur="actInputShow" placeholder="再输入一次新密码"></input>
+  </view>
+  <view class="{{actPassword ? 'actShow' : 'actNone'}}"></view>
+</view>
+<view class="btn" bindtap="revisePassword">立即修改</view>

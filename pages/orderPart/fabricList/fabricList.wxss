@@ -1,0 +1,85 @@
+/* pages/orderPart/fabricList/fabricList.wxss */
+.flex{
+  display: flex;
+}
+.bigArea{
+  width: 100%;
+  background-color:  rgba(237,237,237,0.90);
+}
+.fabricArea{
+  width: 640rpx;
+  padding:0 56rpx;
+  background-color: white;
+  margin-bottom: 20rpx;
+  padding-top: 44rpx;
+}
+.fabricName{
+  font-family: PingFangSC-Semibold;
+  font-size: 32rpx;
+  color: #292B23;
+  letter-spacing: 0.4rpx;
+  line-height: 40rpx;
+  padding-bottom: 32rpx;
+  border-bottom: 2rpx solid  #F0F0F0;
+  margin-bottom: 22rpx;
+}
+.firstBoxArea{
+  width: 268rpx;
+  text-align: left;
+}
+.boxTitle{
+  font-family: PingFangSC-Semibold;
+  font-size: 20rpx;
+  color: #AAAAAA;
+  letter-spacing: 1rpx;
+  margin-bottom: 8rpx;
+}
+.boxNum{
+  font-family: Montserrat-Medium;
+  font-size: 32rpx;
+  color: #292B23;
+  letter-spacing: 0.4rpx;
+  line-height: 40rpx;
+}
+.ne xtBoxArea{
+  width: 228rpx;
+}
+.lastBoxArea{
+  text-align: left;
+  margin-bottom: 42rpx;
+}
+.emptyPng{
+  width: 318rpx;
+  height: 354rpx;
+  margin:156rpx auto 130rpx 243rpx;
+  margin-top: 156rpx;
+  margin-bottom:130rpx;
+}
+.noFabricTip{
+  font-family: PingFangSC-Semibold;
+  font-size: 42rpx;
+  color: #344B67;
+  letter-spacing: -0.4rpx;
+  text-align: center;
+}
+.tipDetail{
+  opacity: 0.7;
+  font-family: PingFangSC-Light;
+  font-size: 32rpx;
+  color: #344B67;
+  text-align: center;
+  line-height: 52rpx;
+  margin: 28rpx auto 70rpx;
+}
+.returnBtn{
+  background: #FFE300;
+  border-radius: 100px;
+  font-family: PingFang-SC-Heavy;
+  font-size: 34rpx;
+  color: #000000;
+  text-align: center;
+  width: 246rpx;
+  height: 100rpx;
+  margin: 0 auto;
+  line-height: 100rpx;
+}

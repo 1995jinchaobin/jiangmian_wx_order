@@ -1,0 +1,57 @@
+<view>
+  <view class="header">
+    <image src="../../images/index/header.png"></image>
+    <view>
+      <view class="title">
+        <view>订单管理</view>
+        <view>线上线下业务一套系统解决</view>
+      </view>
+      <view class="pic" bindtap="toPic">
+        以图识图<image src='../../images/order/Chevron.png'></image>
+      </view>
+      <view class="search">
+        <image src="../../images/search/search.png"></image><input placeholder-style="color: #C9CCD3;" placeholder="搜索你需要的公司关键词" type="text" confirm-type="搜索" bindconfirm="toSearch"></input>
+      </view>
+    </view>
+  </view>
+  <view class="footer">
+    <view class="card">
+      <view bindtap="toCreatedOrder" wx:if="{{role!==0}}">
+        <view class="imgBox">
+          <image src="../../images/orderIndex/createdOrder.png"></image>
+        </view>
+        <text>新建订单</text>
+      </view>
+      <view data-type="1" bindtap="toOrderList">
+        <view class="imgBox">
+          <image src="../../images/orderIndex/order.png"></image>
+        </view>
+        <text>待处理</text>
+      </view>
+      <view data-type="0" bindtap="toOrderList">
+        <view class="imgBox">
+          <image src="../../images/orderIndex/orderList.png"></image>
+        </view>
+        <text>我的订单</text>
+      </view>
+    </view>
+    <view class="search">
+      <view>快速搜索订单</view>
+      <view>
+        <text data-key="公司" bindtap="toSearchKey">公司</text>
+        <text data-key="大货订单号" bindtap="toSearchKey">大货订单号</text>
+        <text data-key="客户订单号" bindtap="toSearchKey">客户订单号</text>
+        <text data-key="订单号" bindtap="toSearchKey">订单号</text>
+        <!-- <text data-key="联系人" bindtap="toSearchKey">联系人</text>
+        <picker mode="date" value="{{date}}" start="{{data}}" end="3000-01-01" bindchange="bindDateChange">
+          <view class="picker">
+            时间
+          </view>
+        </picker>
+        <text data-key="面料规格" bindtap="toSearchKey">面料规格</text>
+        <text data-key="订单状态" bindtap="toSearchKey">订单状态</text> -->
+      </view>
+    </view>
+  </view>
+  <tabBar selected="{{0}}"></tabBar>
+</view>

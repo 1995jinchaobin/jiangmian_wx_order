@@ -1,0 +1,312 @@
+/* pages/orderPart/flaw/index.wxss */
+.flawPage{
+  background-color: #f4f4f4;
+  position: absolute;
+  top: 0rpx;
+}
+.formBox{
+  background: #fff;
+  padding-top: 18rpx;
+  height: 478rpx;
+  margin-bottom: 40rpx;
+}
+.fabric{
+  width: 718rpx;
+  height: 94rpx;
+  background: #FFF;
+  display: flex;
+  align-items: center;
+  position: relative;
+  border-bottom: 2rpx solid  #EEEEEE;
+  margin-left: 32rpx;
+}
+.xiaciList{
+  /* height: 44rpx; */
+  margin: 20rpx 34rpx;
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+}
+.xiaciPishu{
+  width: 104rpx;
+}
+.xiaciListXian{
+  height: 22rpx;
+  width: calc(100% - 124rpx);
+  /* position: absolute; */
+  right: 22rpx;
+  border-bottom: 1px solid #ccc;
+}
+.showInputPishu{
+  width: 100%;
+  opacity: 0.75;
+  background: #000000;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+}
+.fabricPishu{
+  width: 686rpx;
+  height: 94rpx;
+  background: #FFF;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  border-bottom: 2rpx solid  #EEEEEE;
+  margin-left: 32rpx;
+  /* margin-right: 32rpx; */
+}
+.hui{
+  color: #ccc;
+}
+.fabric text{
+  font-size: 34rpx;
+  color: #333333;
+  
+}
+.fabric picker{
+  position: absolute;
+  width: 300rpx;
+  right: 0;
+  text-align: right;
+}
+.picker{
+  font-size: 34rpx;
+  color: #CCCCCC;
+}
+.fabric image{
+  position: absolute;
+  width: 16rpx;
+  height: 25rpx;
+  right: 32rpx;
+}
+.fabric input{
+  width: 300rpx;
+  height: 48rpx;
+  position: absolute;
+  right: 32rpx;
+  text-align: right;
+}
+.priceBox{
+  width: 450rpx;
+  height: 120rpx;
+  background: #fff;
+  text-align: left;
+  line-height: 120rpx;
+  padding-left: 32rpx;
+}
+.priceBox text:nth-child(1),.priceBox text:nth-child(2){
+  font-size: 30rpx;
+  color: #333333;
+}
+.priceBox text:nth-child(2),.priceBox text:nth-child(3){
+  color: #FF3B30;
+}
+/* .priceBox text:nth-child(3){
+  font-size: 40rpx;
+} */
+.flex{
+  display: flex;
+}
+.btn{
+  width: 100%;
+  height: 94rpx;
+  background: #FFE300;
+  text-align: center;
+  line-height: 94rpx;
+  font-size: 36rpx;
+  color: #000000;
+  font-family: PingFangSC-Regular;
+  position: absolute;
+  bottom: 0rpx;
+}
+.input-placeholder{
+  color: #cccccc !important;
+}
+.addBtn{
+  width: 320rpx;
+  height: 94rpx;
+  line-height: 94rpx;
+  border-radius: 4rpx;
+  margin: 42rpx 28rpx 54rpx;
+  font-size: 36rpx;
+  color: #333333;
+  text-align: center;
+  background-color: #FFE300;
+}
+.pishuFinishBtn{
+  background-color: #F1F2F6;
+}
+.footBox{
+  width: 100%;
+  height: 120rpx;
+  display: flex;
+  position: fixed;
+  bottom: 0rpx;
+}
+.btn{
+  width: 300rpx;
+  height: 120rpx;
+  background: #FFE300;
+  text-align: center;
+  line-height: 120rpx;
+  font-size: 36rpx;
+  color: #000000;
+  font-family: PingFangSC-Regular;
+  position: absolute;
+  right: 0rpx;
+}
+.flawInfoArea{
+  width: 678rpx;
+  margin-top: 16rpx;
+  display: flex;
+}
+.left{
+  font-size: 28rpx;
+  color: #999999;
+  text-align: left;
+}
+.right{
+  font-size: 28rpx;
+  color: #333333;
+  text-align: right;
+  margin-left: auto;
+}
+/* .flawSelectBg{
+  width: 100%;
+  opacity: 0.75;
+  background: #000000;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  z-index: 2;
+} */
+/* .flawSelectArea{
+  width: 750rpx;
+  height: 608rpx;
+  border-radius: 4rpx;
+  position: fixed;
+  left: 0rpx;
+  background-color: #ffffff;
+  opacity: 1;
+  bottom: 0rpx;
+  z-index: 3;
+} */
+/* .flawSelectBtnArea{
+  display: flex;
+  border-bottom: 2rpx solid #EEEEEE;
+  height: 78rpx;
+  line-height: 78rpx;
+  z-index: 4;
+} */
+/* .cancelSelectBtn{
+  font-size: 30rpx;
+  color: #999999;
+  text-align: center;
+  margin-left: 32rpx;
+} */
+/* .sureSelectBtn{
+  color: #108EE9;
+  margin-left:566rpx;
+} */
+/* .flawBtnArea{
+  margin-left: 58rpx;
+  margin-top: 56rpx;
+  font-size: 28rpx;
+  color: #2F2F4A;
+  letter-spacing: 1.4rpx;
+  text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  overflow-y: scroll;
+  height: 400rpx;
+} */
+.flawDetailBtn{
+  width: 200rpx;
+  height: 64rpx;
+  line-height: 64rpx;
+  margin-right: 20rpx;
+  background: #f6f8fa;
+  border: 2rpx solid #D4DAE5;
+  border-radius: 8rpx;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+  margin-top: 20rpx;
+}
+.selectFlawDetailBtn{
+  border: 2rpx solid #000000;
+}
+.showInputPishuArea{
+  width: 540rpx;
+  height: 476rpx;
+  border-radius: 4rpx;
+  position: fixed;
+  left: 105rpx;
+  background-color: #ffffff;
+  opacity: 1;
+  z-index: 999;
+}
+.checkMeterAreaInputArea{
+  width: 454rpx;
+  height: 110rpx;
+  border-bottom: 1rpx solid  #EEEEEE;
+  margin-top: 57rpx;
+  margin-left: 36rpx;
+  display: flex;
+  align-items: center;
+}
+.printMeterAreaInputAreaTitle{
+  font-size: 34rpx;
+  color: #333333;
+}
+.checkMeterAreaInputArea input{
+  width: 231rpx;
+}
+.meterText{
+  font-size: 36rpx;
+  color: #333333;
+  line-height: 43rpx;
+  float: right;
+}
+.printBtnArea{
+  height: 100rpx;
+  display: flex;
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+}
+.cancelBtn{
+  width: 50%;
+  height: 100%;
+  line-height: 100rpx;
+  text-align: center;
+  border-top: 1rpx solid #DDDDDD;
+  border-right: 1rpx solid #DDDDDD;
+  font-size: 36rpx;
+  color: #999999;
+  letter-spacing: 0.58rpx;
+}
+.sureBtn{
+  width: 50%;
+  height: 100%;
+  line-height: 100rpx;
+  text-align: center;
+  border-top: 1rpx solid #DDDDDD;
+  border-right: 1rpx solid #DDDDDD;
+  font-size: 36rpx;
+  color: #108EE9;
+  letter-spacing: 0.58rpx;
+}
+.pickerselect{
+  color: #ccc;
+  display: flex;
+  /* position: absolute; */
+  align-items: center;
+  margin-right: 30rpx;
+  justify-content: flex-end;
+}
+.pro_list{
+  margin-bottom: 120rpx;
+}

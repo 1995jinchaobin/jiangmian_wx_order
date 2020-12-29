@@ -1,0 +1,21 @@
+<!--pages/orderPart/rateOrder/index.wxml-->
+<view>
+  <view class="turnDownTitle">订单评论反馈</view>
+  <view class="turnDownDetail">请详细填写您的反馈信息</view><tabBar selected="{{1}}"></tabBar>
+  <textarea class="noteArea" value="{{password}}"
+      bindinput="bindNoteInput"></textarea>
+  <view class="flowerBox">
+    <view class="title">图片</view>
+      <scroll-view scroll-x enable-flex class="msgBox">
+        <view wx:for="{{picList}}" wx:key = "index" class="scrollItem">
+          <image class="icon" src="../../images/order/CloseIcon.png" id="{{index}}" bindtap="deletePic"></image>
+          <image src="{{wwwFileBaseUrl+item.customContent}}"></image>
+        </view>
+        <view class="addBox"  bindtap="addPicList" style="top:{{picList.length > 0 ? '8rpx' : '0'}}">
+          <image src="../../images/order/add.png"></image>
+        </view>
+      </scroll-view>
+  </view>
+  <!-- 驳回按钮 -->
+  <view class="submitBtn"  bindtap="sureSubmit">立即提交</view>
+</view>

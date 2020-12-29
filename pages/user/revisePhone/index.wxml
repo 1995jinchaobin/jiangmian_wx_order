@@ -1,0 +1,13 @@
+<view class="password">
+  <view>
+    <text>原手机号</text><input type="password" bindfocus="oldInputHidd" bindblur="oldInputShow" placeholder="请输入原手机号"></input>
+  </view>
+  <view class="{{oldPassword ? 'actShow' : 'actNone'}}"></view>
+</view>
+<view class="password">
+  <view>
+    <text>新手机号</text><input type="password" bindfocus="newInputHidd" bindblur="newInputShow" placeholder="请输入新手机号"></input>
+  </view>
+  <view class="{{newPassword ? 'actShow' : 'actNone'}}"></view>
+</view>
+<view class="btn" bindtap="revisePassword">立即修改</view>

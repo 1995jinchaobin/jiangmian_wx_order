@@ -1,0 +1,261 @@
+page{
+  background: rgba(237,237,237,0.90);
+}
+
+.userInfo{
+  width: 100%;
+  height: 180rpx;
+  background: #FFFFFF;
+  display: flex;
+  align-items: center;
+  margin-bottom: 20rpx; 
+}
+.userInfo image.logo{
+  width: 84rpx;
+  height: 84rpx;
+  margin-left: 30rpx;
+  margin-right: 28rpx;
+}
+.userInfo view text{
+  font-size: 24rpx;
+  color: #555555;
+}
+.userInfo view view{
+  font-size: 48rpx;
+  color: #111111;
+}
+.userInfo image.next{
+  width: 16rpx;
+  height: 26rpx;
+  position: absolute;
+  right: 34rpx;
+}
+.flowerBox{
+  width: 100%;
+  height: 226rpx;
+  background: #FFFFFF;
+  padding-top: 40rpx;
+  position: relative;
+}
+.flowerBox .title{
+  font-size: 34rpx;
+  color: #333333;
+  margin-left: 30rpx;
+  margin-top: 30rpx
+}
+.msgBox{
+  position: absolute;
+  width: 83%;
+  height: 180rpx;
+  /* display: flex; */
+  white-space: nowrap;
+  top: 40rpx;
+  left: 174rpx;
+}
+.addBox,.scrollItem{
+  display: inline-block;
+  position: relative;
+  width: 140rpx;
+}
+.scrollItem+.scrollItem{
+  margin-left: 28rpx;
+}
+.addBox{
+  /* top: -48rpx; */
+  margin-left: 10rpx;
+  width: 120rpx;
+  height: 120rpx;
+  background: #F3F3F3;
+  border-radius: 8rpx;
+}
+.msgBox .icon{
+  width: 42rpx;
+  height: 42rpx;
+  position: absolute;
+  top: -2rpx;
+  right: -2rpx;
+  z-index: 5;
+}
+.msgBox image:nth-child(2){
+  width: 120rpx;
+  height: 120rpx;
+  position: relative;
+  top: 10rpx;
+  border-radius: 8rpx;
+}
+.addBox image{
+  width: 45rpx;
+  height: 45rpx;
+  margin: 37.5rpx;
+}
+.msgBox input,.placeMsg{
+  width: 120rpx;
+  font-size: 24rpx;
+  color: #333333;
+  text-align: center;
+}
+.formBox{
+  margin-bottom: 150rpx;
+  background: #fff;
+}
+.fabric{
+  width: 718rpx;
+  height: 94rpx;
+  background: #FFF;
+  display: flex;
+  align-items: center;
+  position: relative;
+  border-bottom: 2rpx solid  #EEEEEE;
+  margin-left: 32rpx;
+}
+.swichForm{
+  margin-left: 32rpx;
+  border-bottom: 2rpx solid  #EEEEEE;
+  width: 718rpx;
+  height: 94rpx;
+  align-items: center;
+  display: flex;
+}
+.swichForm .flex1{
+  flex: 1;
+}
+.fabric text{
+  font-size: 34rpx;
+  color: #333333;
+  
+}
+.fabric picker{
+  position: absolute;
+  width: 300rpx;
+  right: 60rpx;
+  text-align: right;
+}
+.picker{
+  font-size: 34rpx;
+  color: #CCCCCC;
+}
+.fabric image{
+  position: absolute;
+  width: 16rpx;
+  height: 25rpx;
+  right: 32rpx;
+}
+.fabric input{
+  width: 300rpx;
+  height: 48rpx;
+  position: absolute;
+  right: 32rpx;
+  text-align: right;
+}
+.fabric switch{
+  width: 300rpx;
+  height: 48rpx;
+  position: absolute;
+  right: 32rpx;
+  text-align: right;
+}
+.footBox{
+  width: 100%;
+  height: 120rpx;
+  display: flex;
+  position: fixed;
+  bottom: 0;
+  z-index: 9999;
+}
+.textBox{
+  height: 220rpx !important;
+}
+.textBox text{
+  position: relative;
+  top: -71rpx;
+}
+.textBox textarea{
+  width: 590rpx;
+  height: 180rpx;
+  position: absolute;
+  top: 15rpx;
+  right: 20rpx;
+  padding: 5rpx;
+  background: #ece9e9;
+}
+.priceBox{
+  width: 450rpx;
+  height: 120rpx;
+  background: #fff;
+  text-align: center;
+  line-height: 120rpx;
+}
+.priceBox text:nth-child(1),.priceBox text:nth-child(2){
+  font-size: 30rpx;
+  color: #333333;
+}
+.priceBox text:nth-child(2),.priceBox text:nth-child(3){
+  color: #FF3B30;
+}
+.priceBox text:nth-child(3){
+  font-size: 40rpx;
+}
+.btn{
+  width: 300rpx;
+  height: 120rpx;
+  background: #FFE300;
+  text-align: center;
+  line-height: 120rpx;
+  font-size: 36rpx;
+  color: #000000;
+  font-family: PingFangSC-Regular;
+}
+.input-placeholder{
+  color: #cccccc !important;
+}
+.priceSelect{
+   width: 718rpx;
+  height: 94rpx;
+  background: #FFF;
+  display: flex;
+  align-items: center;
+  position: relative;
+  border-bottom: 2rpx solid  #EEEEEE;
+  margin-left: 32rpx;
+}
+.priceSelect .selectDanwei{
+  margin-right: 30rpx;
+}
+.priceSelect .priceText{
+  flex:1;
+}
+.priceSelect input{
+   text-align: right;
+}
+.approximately,.fabricPinming{
+  width: 718rpx;
+  height: 94rpx;
+  background: #FFF;
+  display: flex;
+  align-items: center;
+  position: relative;
+  border-bottom: 2rpx solid  #EEEEEE;
+  margin-left: 32rpx;
+}
+.approximately .title{
+  width: 80rpx;
+  flex: 1;
+}
+.approximatelyInputLeft{
+  text-align: right;
+}
+.approximately input{
+  width: 100rpx;
+}
+.approximately .center{
+  text-align: center;
+  width: 80rpx;
+}
+.fabricPinming{
+  justify-content: space-between;
+}
+.fabricPinmingInput{
+  flex: 1;
+  text-align: right;
+  margin-right: 30rpx;
+}

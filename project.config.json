@@ -1,0 +1,230 @@
+{
+	"description": "项目配置文件",
+	"packOptions": {
+		"ignore": []
+	},
+	"setting": {
+		"urlCheck": false,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true,
+		"coverView": true,
+		"autoAudits": false,
+		"showShadowRootInWxmlPanel": true,
+		"scopeDataCheck": false,
+		"checkInvalidKey": true,
+		"checkSiteMap": true,
+		"uploadWithSourceMap": true,
+		"babelSetting": {
+			"ignore": [],
+			"disablePlugins": [],
+			"outputPath": ""
+		}
+	},
+	"compileType": "miniprogram",
+	"libVersion": "2.10.4",
+	"appid": "wx4ded79e20410fe21",
+	"projectname": "wx-order-youchai",
+	"debugOptions": {
+		"hidedInDevtools": []
+	},
+	"isGameTourist": false,
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"currentL": -1,
+			"list": []
+		},
+		"gamePlugin": {
+			"current": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": -1,
+			"list": [
+				{
+					"id": -1,
+					"name": "pages/order/order",
+					"pathName": "pages/order/order",
+					"query": "again= %7B%22id%22%3A83%2C%22orderId%22%3A%2241-50-2004-6%22%2C%22fkUserId%22%3A41%2C%22fkCustomerId%22%3A50%2C%22companyName%22%3A%22%E5%AE%A2%E6%88%B7%E4%B8%89%E5%85%AC%E5%8F%B8%22%2C%22contacts%22%3A%22%E5%AE%A2%E6%88%B7%E4%B8%89%22%2C%22phone%22%3A%2218800001111%22%2C%22address%22%3A%22%E5%AE%A2%E6%88%B7%E4%B8%89%E5%9C%B0%E5%9D%80%22%2C%22fabricName%22%3A%22%E9%9D%A2%E6%96%99%E4%B8%89%22%2C%22meter%22%3A52%2C%22finishMeter%22%3A0%2C%22unfinishMeter%22%3A52%2C%22unitPrice%22%3A225%2C%22totalPrice%22%3A%2211%2C700.00%22%2C%22origin%22%3A%22%E5%8A%A0%E5%B7%A5%22%2C%22note%22%3A%22%E5%A5%BD%E5%92%AF%E5%90%8E%E6%82%94%22%2C%22type%22%3A0%2C%22reason%22%3Anull%2C%22machineId%22%3A0%2C%22machineName%22%3Anull%2C%22note2%22%3Anull%2C%22createTime%22%3A%2204-30%2015%3A43%22%2C%22deliveryTime%22%3A%222022-05-02%22%2C%22deliveryType%22%3A%22%E7%89%A9%E6%B5%81%22%2C%22okMeter%22%3A0%2C%22badMeter%22%3A0%2C%22expressNumber%22%3Anull%2C%22expressType%22%3Anull%2C%22status%22%3A0%2C%22note3%22%3Anull%2C%22filePath%22%3A%22Qqq%22%2C%22expedite%22%3A0%2C%22orderDetails%22%3A%5B%7B%22id%22%3A124%2C%22fkOrderId%22%3A83%2C%22flowerNum%22%3A%22bbf72b356b32452c910c9532e6877567%22%2C%22flowerUrl%22%3A%222020%2F4%2Fcaf06c9bfc7a46208a03c837c29a00fc.png%22%2C%22flowerName%22%3A%22bbf72b356b32452c910c9532e6877567%22%7D%2C%7B%22id%22%3A123%2C%22fkOrderId%22%3A83%2C%22flowerNum%22%3A%225f66ee65310a43a4ae91f699436d624c%22%2C%22flowerUrl%22%3A%222020%2F4%2Ff355cafdb6534c00b7c86dd913702d38.png%22%2C%22flowerName%22%3A%225f66ee65310a43a4ae91f699436d624c%22%7D%5D%2C%22orderOperations%22%3A%5B%7B%22id%22%3A225%2C%22fkOrderId%22%3A83%2C%22fkUserId%22%3A41%2C%22userName%22%3A%22%E4%B8%9A%E5%8A%A1%E5%91%98%E4%BA%8C%22%2C%22type%22%3A0%2C%22note%22%3Anull%2C%22createTime%22%3A1588232633000%2C%22machineId%22%3A0%2C%22machineName%22%3Anull%2C%22meter%22%3A0%2C%22okMeter%22%3A0%2C%22badMeter%22%3A0%2C%22expressNumber%22%3Anull%2C%22expressType%22%3Anull%7D%5D%2C%22salesMan%22%3A%7B%22id%22%3A41%2C%22name%22%3A%22%E4%B8%9A%E5%8A%A1%E5%91%98%E4%BA%8C%22%2C%22account%22%3A%22%E4%B8%9A%E5%8A%A1%E5%91%98%E4%BA%8C%22%2C%22password%22%3A%22BAF78DA7DC39057E17522916DFBB288F%22%2C%22role%22%3A1%2C%22token%22%3A%22456ad0c3a4bb4509ba1116d83b7731a4%22%2C%22remark%22%3A%22%22%2C%22createTime%22%3A1585809251000%2C%22openId%22%3A%22odVPk5E4HyHMGIKGVRVILjkyy_w4%22%2C%22status%22%3A0%2C%22userDetail%22%3Anull%2C%22bindSalesman%22%3Anull%7D%7D]",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/orderPart/orderList/orderList",
+					"pathName": "pages/orderPart/orderList/orderList",
+					"query": "scene=id=1",
+					"scene": 1011
+				},
+				{
+					"id": -1,
+					"name": "id=1",
+					"pathName": "pages/orderPart/orderList/orderList",
+					"query": "id=1",
+					"scene": 1011
+				},
+				{
+					"id": -1,
+					"name": "pages/orderPart/orderList/orderList",
+					"pathName": "pages/orderPart/orderList/orderList",
+					"query": "id=1",
+					"scene": 1048
+				},
+				{
+					"id": -1,
+					"name": "pages/orderPart/orderIndex/index",
+					"pathName": "pages/orderPart/orderIndex/index",
+					"query": "id=136",
+					"scene": 1011
+				},
+				{
+					"id": -1,
+					"name": "pages/orderPart/orderList/orderList",
+					"pathName": "pages/orderPart/orderList/orderList",
+					"query": "id=136",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/orderPart/flaw/index",
+					"pathName": "pages/orderPart/flaw/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/knowLedgeCount/home/home",
+					"pathName": "pages/knowLedgeCount/home/home",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/knowLedgeCount/detail/detail",
+					"pathName": "pages/knowLedgeCount/detail/detail",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/orderPart/orderList/orderList",
+					"pathName": "pages/orderPart/orderList/orderList",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/orderPart/orderMsg/index",
+					"pathName": "pages/orderPart/orderMsg/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/orderPart/orderList/orderList",
+					"pathName": "pages/orderPart/orderList/orderList",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "登录",
+					"pathName": "pages/orderPart/login/login",
+					"query": "scene=id=1",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "以图识图",
+					"pathName": "pages/knowLedgeCount/home/home",
+					"query": "scene=id=1",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "以图识图结果",
+					"pathName": "pages/knowLedgeCount/detail/detail",
+					"query": "scene=id=1",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "订单详情",
+					"pathName": "pages/orderPart/orderMsg/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/orderPart/orderIndex/index",
+					"pathName": "pages\\client\\clientMsg",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/client/clientMsg/index",
+					"pathName": "pages/client/clientMsg/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/orderPart/orderList/orderList",
+					"pathName": "pages/orderPart/orderList/orderList",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/orderPart/fabricList/fabricList",
+					"pathName": "pages/orderPart/fabricList/fabricList",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/search/home/index",
+					"pathName": "pages/search/home/index",
+					"query": "scene=id=1",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/search/searchNow/search",
+					"pathName": "pages/search/searchNow/search",
+					"query": "scene=id=1",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/user/userHome/index",
+					"pathName": "pages/user/userHome/index",
+					"query": "scene=id=1",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/orderPart/orderList/orderList",
+					"pathName": "pages/orderPart/orderList/orderList",
+					"query": "scene=id=1",
+					"scene": null
+				}
+			]
+		}
+	}
+}

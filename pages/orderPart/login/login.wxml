@@ -1,0 +1,16 @@
+<!-- pages/login/login.wxml -->
+<view class="loginPage">
+  <image style="height: {{screenHeight-statusBarHeight}}px;width:100%;" class="pageBaImg" src="../../images/backgroundImg.jpg"></image>
+  <view class="loginTitle">您好，</view>
+  <view class="loginDetail">欢迎来到江绵纺织</view>
+  <!-- 表单 -->
+  <view>
+    <input class="inputArea" placeholder-class="inputAreaPlaceholder" type='text' placeholder="用户名" bindfocus="chooseAccountMethod" bindblur="notChooseAccountMethod" value="{{account}}" bindinput="bindAccountInput"></input>
+  </view>
+  <view>
+    <input class="inputArea" placeholder-class="inputAreaPlaceholderPassword" type='password' placeholder="密码" bindfocus="choosePasswordMethod" bindblur="notChoosePasswordMethod" value="{{password}}" bindinput="bindPasswordInput"></input>
+  </view>
+  <!-- 登录按钮 -->
+  <view bindtap="login" class="loginBtn">登录</view>
+  <view class="bottomDetail">© 2020 江绵纺织. All rights reserved.</view>
+</view>

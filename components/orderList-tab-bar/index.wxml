@@ -1,0 +1,12 @@
+<!--home-tab-bar/index.wxml-->
+<cover-view class="tab-bar">
+  <cover-view class="tab-bar-content">
+      <cover-view wx:for="{{list}}" wx:key="index" class="tab-bar-item" data-path="{{item.pagePath}}" data-index="{{index}}" bindtap="switchTab">
+      <cover-image src="{{selected === index ? item.selectedIconPath : item.iconPath}}"
+      class="cover-image{{index+1}}"></cover-image>
+      <cover-view style="color: {{selected === index ? selectedColor : color}}">{{item.text}}
+      </cover-view>
+      <text wx:if="{{item.text=='我的' && yujingNum}}" class="yujingNum">{{yujingNum}}</text>
+    </cover-view>
+  </cover-view>
+</cover-view>

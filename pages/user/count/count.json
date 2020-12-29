@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "tabBar": "../../../components/orderList-tab-bar",
+    "ec-canvas": "../../../components/ec-canvas/ec-canvas",
+    "timePicker": "/components/timePicker/index"
+  },
+  "navigationBarTitleText": "数据统计"
+}

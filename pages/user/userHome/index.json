@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "tabBar": "../../../components/orderList-tab-bar"
+  },
+  "navigationBarTitleText": "我的"
+}

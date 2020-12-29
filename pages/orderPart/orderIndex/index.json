@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "tabBar": "../../../components/orderList-tab-bar"
+  },
+  "navigationBarTitleText": "在线订单管理系统"
+}

@@ -1,0 +1,60 @@
+<!--pages/user/count/count.wxml-->
+<view class="bigArea" style="height: {{screenHeight}}px;">
+  <!-- 出货数量统计 -->
+  <view style="background:#fff;">
+    <timePicker bind:searchData="getData"></timePicker>
+  </view>
+  <view class="countArea">
+    <view class="titleArea">
+      <!-- 左侧标题 -->
+      <view class="leftTitle">出货数量</view>
+      <!-- 日期选择 -->
+      
+      <!-- <image class="dateSelect" src="../../images/count/dateSelect.png " bindtap="showPicker"></image> -->
+      <view class="dateBtn dayBtn" data-index="dayBtn" bindtap="chooseCustomer">近30天</view>
+      <view class="dateBtn weekBtn" data-index="weekBtn" bindtap="chooseCustomer">周</view>
+      <view class="mounthBtn dateBtn" data-index="monthBtn" bindtap="chooseCustomer">月</view>
+      <view class="selectBtnBorder" style="right:{{customerType=='dayBtn'?'216':customerType=='weekBtn'?'110':'39'}}rpx"></view>
+    </view>
+    <!-- 图表 -->
+    <view class="container">
+      <ec-canvas wx:if="{{!isDisposed}}" id="mychart-dom-bar" canvas-id="mychart-bar" ec="{{ customerEc }}"></ec-canvas>
+    </view>
+  </view>
+   <!-- 面料品类统计 -->
+  <view class="countArea">
+    <view class="titleArea">
+      <!-- 左侧标题 -->
+      <view class="leftTitle">面料品类</view>
+      <!-- 日期选择 -->
+      <!-- <image class="dateSelect" src="../../images/count/dateSelect.png " bindtap="showPicker"></image> -->
+      <view class="dateBtn dayBtn" data-index="dayBtn" bindtap="chooseCustomer">近30天</view>
+      <view class="dateBtn weekBtn" data-index="weekBtn" bindtap="chooseCustomer">周</view>
+      <view class="mounthBtn dateBtn" data-index="monthBtn" bindtap="chooseCustomer">月</view>
+      <view class="selectBtnBorder" style="right:{{customerType=='dayBtn'?'216':customerType=='weekBtn'?'110':'39'}}rpx"></view>
+    </view>
+    <!-- 图表 -->
+    <view class="container" 
+    wx:if="{{customerType=='dayBtn'?countData.fabricOwnOut30Day.length==0?false:true:customerType=='weekBtn'?countData.fabricOwnOut12Week.length==0?false:true:countData.fabricOwnOut12Month.length==0?false:true}}">
+      <!-- <ec-canvas wx:if="{{!isDisposedFabric}}" id="fabric-pie" canvas-id="mychart-bar" ec="{{ fabricEc }}"></ec-canvas> -->
+      <ec-canvas wx:if="{{!isDisposedFabric}}" id="mychart-dom-pie" canvas-id="mychart-pie" ec="{{ fabricEc }}"></ec-canvas>
+    </view>
+    <view wx:else class="noFabric">暂无面料</view>
+  </view>
+  <!-- 花型排行榜 -->
+  <view class="countArea" style="padding-bottom:{{30+76*countData.flowerNumOwnOrderByAll.length}}rpx;margin-bottom:120rpx;">
+    <view class="titleArea">
+      <!-- 左侧标题 -->
+      <view class="leftTitle">花型排行榜</view>
+    </view>
+    <!-- 排行榜 -->
+    <view class="rightSellRange">
+      <view class="topThreeArea" wx:for="{{countData.flowerNumOwnOrderByAll}}"  wx:if="{{index<7}}">
+        <view class="topThree" style="background:{{index>2?'#f0f2f5':'#3f8ff7'}};color:{{index>2?'#000':'#fff'}}">{{index+1}}</view>
+        <view class="topThreeName">{{item.name}}</view>
+        <view class="topThreeNum">{{item.num}}</view>
+      </view>
+    </view>
+  </view>
+  <tabBar selected="{{3}}"></tabBar>
+</view>

@@ -1,0 +1,15 @@
+<view class="searchBar">
+  <view>
+    <image src="../../images/search/search.png"></image>
+    <input placeholder="搜索你需要的公司关键词" type="text" confirm-type="搜索" bindconfirm="hideKey" bindinput="adInputChange"></input>
+  </view>
+  <view bindtap="hideKey">搜索</view>
+</view>
+<view class="userNameBox">
+  <view class="{{index == 0 ? 'userNameTop userName' : 'userName'}}" wx:for="{{clientList}}" wx:key="id">
+    <view data-info="{{item}}" bindtap="toClient">{{item.name}}</view>
+  </view>
+</view>
+<view class="addBtn" bindtap="toCreate">
+  <image src="../../images/client/add.png"></image><text>新建客户</text>
+</view>

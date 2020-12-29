@@ -1,0 +1,123 @@
+page{
+  background: #F4F4F4;
+}
+.searchBar{
+  position: relative;
+  padding-top: 34rpx;
+  padding-bottom: 72rpx;
+  background: #fff;
+}
+.searchBar view:nth-child(1){
+  width: 595rpx;
+  height: 70rpx;
+  display: flex;
+  align-items: center;
+  margin-left: 32rpx;
+  background: #F5F5F5;
+  border-radius: 2px;
+}
+.searchBar image{
+  width: 28.2rpx;
+  height: 28rpx;
+  margin-left: 24.2rpx;
+  margin-right: 12.2rpx;
+}
+.searchBar input{
+  width: 367rpx;
+  height: 40rpx;
+  font-size: 24rpx;
+}
+.searchBar view:nth-child(2){
+  width: 64rpx;
+  height: 70rpx;
+  font-size: 32rpx;
+  color: #333333;
+  text-align: center;
+  line-height: 70rpx;
+  display: inline-block;
+  position: absolute;
+  top: 34rpx;
+  right: 32rpx;
+}
+.itemBox{
+  width: 100%;
+  height: 298rpx;
+  background: #fff;
+}
+.title{
+  display: block;
+  font-size: 36rpx;
+  color: #333333;
+  margin-left: 36rpx;
+  margin-bottom: 28rpx;
+}
+.btnBox picker{
+  display: inline-block;
+}
+.btnBox text,.btnBox picker{
+  font-size: 28rpx;
+  color: #333333;
+  padding: 13rpx 24rpx;
+  background: #F5F5F5;
+  margin-right: 28rpx;
+}
+.btnBox text:nth-child(1){
+  margin-left: 32rpx;
+}
+/* 联系人列表 */
+.userName view{
+  width: 100%;
+  height: 88rpx;
+  background: #fff;
+  font-size: 34rpx;
+  color: #000000;
+  line-height: 88rpx;
+  border-bottom: 1rpx solid#C8C7CC;
+  padding-left: 32rpx;
+}
+.userName:nth-child(1){
+  border-top: 1rpx solid#C8C7CC;
+}
+
+.orderInfo{
+  width: 690rpx;
+  height: 128rpx;
+  border-bottom: 2.8rpx solid #f1f1f3;
+  padding: 40rpx 30rpx 32rpx;
+  position: relative;
+  background: #fff;
+}
+.orderInfoDetail{
+  width: 100%;
+  display: flex;
+}
+.orderTitle{
+  font-size: 32rpx;
+  color: #333333;
+}
+.orderState{
+  font-size: 24rpx;
+  color: #FF7D00;
+  margin-left: 10rpx;
+}
+.orderAddress{
+  font-size: 24rpx;
+  color: #aaaaaa;
+  line-height: 44rpx;
+}
+.orderTime{
+  font-size: 24rpx;
+  color: #888888;
+  margin-top: 14rpx
+}
+.orderPrice{
+  position: absolute;
+  float: right;
+  right: 32rpx;
+}
+.searchBox{
+  margin-bottom: 150rpx;
+}
+.aaa{
+  color: blue !important;
+}
